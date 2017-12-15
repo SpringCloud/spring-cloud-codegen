@@ -1,4 +1,0 @@
-spring.application.name=${serviceName}
-server.port=${port}
-
-eureka.client.serviceUrl.defaultZone=${eurekaUrl}
