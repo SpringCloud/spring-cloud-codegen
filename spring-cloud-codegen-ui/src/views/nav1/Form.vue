@@ -138,7 +138,7 @@
   /*}*/
   .info-tip button {
     font-size: 25px;
-    color: #20a0ff;
+    color: #6DB345;
     position: absolute;
     top: -6px;
     right: -32px;
@@ -155,12 +155,12 @@
     background-color: white ! important;
   }
   .recommend {
-    color:#20a0ff;
+    color:#1AB387;
     padding-left: 15px;
     font-size: 8pt;
   }
   .must-need{
-    color:#20a0ff;
+    color:red;
     font-size:15pt;
     display: block;
     position: absolute;
