@@ -1,5 +1,46 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <skeleton>
+    <!--头部下拉列表配置-->
+    <group>
+        <key>title-type</key>
+        <label>标题栏信息</label>
+        <description></description>
+        <type>COMBOBOX_GROUP</type>
+        <layout>HORIZONTAL</layout>
+        <entity>
+            <key>projectType</key>
+            <label></label>
+            <description></description>
+            <type>COMBOBOX</type>
+            <options>maven;gradle</options>
+            <highlightable>false</highlightable>
+            <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+        <entity>
+            <key>language</key>
+            <label></label>
+            <description></description>
+            <type>COMBOBOX</type>
+            <options>java;testA;testB</options>
+            <highlightable>false</highlightable>
+            <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+        <entity>
+            <key>javaVersion</key>
+            <label></label>
+            <description></description>
+            <type>COMBOBOX</type>
+            <options>1.6;1.7;1.8</options>
+            <highlightable>false</highlightable>
+            <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+    </group>
     <!-- 工程基本配置 -->
     <group>
         <key>basic</key>
