@@ -21,7 +21,7 @@ public class GeneratorTest {
             String generatePath = "E:/Download/Skeleton/";
 
             // 模板文件所在的前置目录名
-            String templateDirectory = "template";
+            String templateDirectory = "template/springboot";
             // String templateDirectory = null;
 
             // 描述规则的配置文件所在的路径

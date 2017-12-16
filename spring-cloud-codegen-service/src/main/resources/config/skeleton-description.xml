@@ -141,7 +141,7 @@
         <type>RADIO_GROUP</type>
         <layout>HORIZONTAL</layout>
         <entity>
-            <key>Spring Boot</key>
+            <key>springboot</key>
             <label>Spring Boot</label>
             <description></description>
             <type>RADIO</type>
@@ -152,7 +152,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>Spring Cloud</key>
+            <key>springcloud</key>
             <label>Spring Cloud</label>
             <note>Spring Cloud应用</note>
             <description></description>
@@ -165,7 +165,7 @@
         </entity>
         <entity>
             <key>war</key>
-            <label>war应用</label>
+            <label>War应用</label>
             <description></description>
             <type>RADIO</type>
             <value>false</value>

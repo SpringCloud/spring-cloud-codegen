@@ -41,6 +41,8 @@ import com.nepxion.skeleton.transport.SkeletonDataTransport;
 @RestController
 @Api(tags = { "脚手架接口" })
 public class SkeletonController {
+    private static final String APPLICATION_TYPE = "applicationType";
+
     @Value("${skeleton.template.prefix.template.directory}")
     private String skeletonPrefixTemplateDirectory;
 
@@ -49,6 +51,8 @@ public class SkeletonController {
 
     @Value("${skeleton.generate.path}")
     private String skeletonGeneratePath;
+
+    private String templateDirectory;
 
     private GeneratorService generatorService;
 
@@ -62,7 +66,7 @@ public class SkeletonController {
         dataTransport = new SkeletonDataTransport() {
             @Override
             public void generate(String path, SkeletonProperties skeletonProperties) throws Exception {
-                generatorService.generator(path, skeletonPrefixTemplateDirectory, skeletonProperties);
+                generatorService.generator(path, templateDirectory, skeletonProperties);
             }
         };
     }
@@ -77,6 +81,8 @@ public class SkeletonController {
     @ApiOperation(value = "下载脚手架", notes = "下载脚手架Zip文件的接口，返回Zip文件的byte数组类型", response = byte[].class, httpMethod = "POST")
     public byte[] downloadBytes(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/skeleton-data.properties的内容", required = true) String config) {
         SkeletonProperties properties = configTransport.getProperties(config);
+
+        templateDirectory = skeletonPrefixTemplateDirectory + "/" + properties.getString(APPLICATION_TYPE);
 
         return dataTransport.download(skeletonGeneratePath, skeletonGenerateFileName, properties);
     }
