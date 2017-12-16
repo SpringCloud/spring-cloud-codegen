@@ -20,6 +20,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -34,6 +35,7 @@ import org.springframework.web.bind.annotation.RestController;
 import cn.springcloud.codegen.service.generator.GeneratorService;
 
 import com.nepxion.skeleton.entity.SkeletonGroup;
+import com.nepxion.skeleton.exception.SkeletonException;
 import com.nepxion.skeleton.property.SkeletonProperties;
 import com.nepxion.skeleton.transport.SkeletonConfigTransport;
 import com.nepxion.skeleton.transport.SkeletonDataTransport;
@@ -85,7 +87,7 @@ public class SkeletonController {
     public byte[] downloadBytes(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/skeleton-data.properties的内容", required = true) String config) {
         SkeletonProperties properties = configTransport.getProperties(config);
 
-        templateDirectory = skeletonPrefixTemplateDirectory + "/" + properties.getString(APPLICATION_TYPE);
+        generateDynamicTemplateDirectory(properties);
 
         return dataTransport.download(skeletonGeneratePath, skeletonGenerateFileName, properties);
     }
@@ -94,6 +96,9 @@ public class SkeletonController {
     @ApiOperation(value = "下载脚手架", notes = "下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
     public ResponseEntity<Resource> downloadResponse(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/skeleton-data.properties的内容", required = true) String config) {
         SkeletonProperties properties = configTransport.getProperties(config);
+
+        generateDynamicTemplateDirectory(properties);
+
         String canonicalFileName = configTransport.getCanonicalFileName(skeletonGenerateFileName, properties);
         byte[] bytes = dataTransport.download(skeletonGeneratePath, skeletonGenerateFileName, properties);
 
@@ -109,5 +114,14 @@ public class SkeletonController {
         Resource resource = new InputStreamResource(inputStream);
 
         return ResponseEntity.ok().headers(headers).contentType(MediaType.parseMediaType("application/x-msdownload")).body(resource);
+    }
+
+    private void generateDynamicTemplateDirectory(SkeletonProperties properties) {
+        String applicationType = properties.getString(APPLICATION_TYPE);
+        if (StringUtils.isEmpty(applicationType)) {
+            throw new SkeletonException("Application type is null or empty");
+        }
+
+        templateDirectory = skeletonPrefixTemplateDirectory + "/" + applicationType;
     }
 }
