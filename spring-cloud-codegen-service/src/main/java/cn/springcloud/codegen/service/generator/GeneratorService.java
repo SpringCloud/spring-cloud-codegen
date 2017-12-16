@@ -16,6 +16,7 @@ import cn.springcloud.codegen.service.generator.server.PomXmlGenerator;
 import cn.springcloud.codegen.service.generator.server.java.ServerApplicationClassGenerator;
 import cn.springcloud.codegen.service.generator.server.resources.ApplicationPropertiesGenerator;
 
+import cn.springcloud.codegen.service.generator.server.test.TestServerApplicationClassGenerator;
 import com.nepxion.skeleton.exception.SkeletonException;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
@@ -31,5 +32,11 @@ public class GeneratorService {
 
         // 创建文件到目录下
         new PomXmlGenerator(path, "server", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+
+
+        // 创建test类文件
+        new TestServerApplicationClassGenerator(path, "server", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+
+
     }
 }
