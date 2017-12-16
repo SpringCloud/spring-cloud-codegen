@@ -43,7 +43,7 @@ import com.nepxion.skeleton.transport.SkeletonDataTransport;
 public class SkeletonController {
     private static final String APPLICATION_TYPE = "applicationType";
 
-    @Value("${skeleton.template.prefix.template.directory}")
+    @Value("${skeleton.prefix.template.directory}")
     private String skeletonPrefixTemplateDirectory;
 
     @Value("${skeleton.generate.file.name}")
