@@ -135,7 +135,7 @@
 
     <!-- 应用类型 -->
     <group>
-        <key>appType</key>
+        <key>applicationType</key>
         <label>应用类型</label>
         <description></description>
         <type>RADIO_GROUP</type>
