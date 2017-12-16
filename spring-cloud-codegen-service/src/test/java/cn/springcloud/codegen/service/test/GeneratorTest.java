@@ -22,7 +22,7 @@ public class GeneratorTest {
 
             // 如果prefixTemplateDirectory和reducedTemplateDirectory同时为null，那么Generator类目录和Template目录必须完全一致
             // 模板文件所在的前置目录名
-            String prefixTemplateDirectory = "template/springboot";
+            String prefixTemplateDirectory = "templates/springboot";
             // String prefixTemplateDirectory = null;
 
             // 模板目录缩减
