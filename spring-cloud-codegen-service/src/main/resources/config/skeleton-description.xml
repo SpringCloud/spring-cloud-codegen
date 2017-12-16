@@ -23,14 +23,14 @@
             <label></label>
             <description></description>
             <type>COMBOBOX</type>
-            <options>java;testA;testB</options>
+            <options>Java;Kotlin;Groovy</options>
             <highlightable>false</highlightable>
             <defaultable>false</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
         <entity>
-            <key>javaVersion</key>
+            <key>springboot-version</key>
             <label></label>
             <description></description>
             <type>COMBOBOX</type>
