@@ -128,8 +128,8 @@ export default {
 		.logo {
 			//width:230px;
 			height: 60px;
-			font-size: 22px;
-			padding-left: 20px;
+			font-size: 25px;
+			padding-left: 155px;
 			padding-right: 20px;
 			border-color: rgba(238, 241, 146, 0.3);
 			border-right-width: 1px;
@@ -144,7 +144,7 @@ export default {
 			}
 		}
 		.logo-width {
-			width: 230px;
+			width: 360px;
 		}
 		.logo-collapse-width {
 			width: 60px
