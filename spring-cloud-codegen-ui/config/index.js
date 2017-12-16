@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/v1/': {
-        target: 'http://127.0.0.1:2222/',
+        target: 'http://api-codegen.smartscity.com',
         changeOrigin: true,
         pathRewrite: {
           '^/v1/': ''
