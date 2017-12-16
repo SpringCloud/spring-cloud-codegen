@@ -137,7 +137,7 @@
     /*margin-bottom: 300px;*/
   /*}*/
   .info-tip button {
-    font-size: 25px;
+    font-size: 18px;
     color: #6DB345;
     position: absolute;
     top: -6px;
