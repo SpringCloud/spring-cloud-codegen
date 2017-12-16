@@ -22,15 +22,14 @@ import com.nepxion.skeleton.property.SkeletonProperties;
 import freemarker.template.TemplateException;
 
 public class GeneratorService {
-    public void generator(String path, String templateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
+    public void generator(String path, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
         // 创建Java类文件
-        // 模板文件ServerApplication.java.template必须和ServerApplicationClassGenerator.java放在同一个目录下，下同
-        new ServerApplicationClassGenerator(path, "server", templateDirectory, skeletonProperties).generate();
+        new ServerApplicationClassGenerator(path, "server", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
 
         // 创建文件到resources目录下
-        new ApplicationPropertiesGenerator(path, "server", templateDirectory, skeletonProperties).generate();
+        new ApplicationPropertiesGenerator(path, "server", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
 
         // 创建文件到目录下
-        new PomXmlGenerator(path, "server", templateDirectory, skeletonProperties).generate();
+        new PomXmlGenerator(path, "server", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
     }
 }

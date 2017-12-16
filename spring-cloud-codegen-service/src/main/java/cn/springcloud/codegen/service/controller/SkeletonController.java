@@ -46,6 +46,9 @@ public class SkeletonController {
     @Value("${skeleton.prefix.template.directory}")
     private String skeletonPrefixTemplateDirectory;
 
+    @Value("${skeleton.reduced.template.directory}")
+    private String skeletonReducedTemplateDirectory;
+
     @Value("${skeleton.generate.file.name}")
     private String skeletonGenerateFileName;
 
@@ -66,7 +69,7 @@ public class SkeletonController {
         dataTransport = new SkeletonDataTransport() {
             @Override
             public void generate(String path, SkeletonProperties skeletonProperties) throws Exception {
-                generatorService.generator(path, templateDirectory, skeletonProperties);
+                generatorService.generator(path, templateDirectory, skeletonReducedTemplateDirectory, skeletonProperties);
             }
         };
     }
