@@ -37,7 +37,7 @@ public class ServerApplicationClassGenerator extends SkeletonJavaGenerator {
      * @param baseTemplatePath 模板文件的等级路径
      * @param skeletonProperties 全局配置文件对象
      */
-    /*public TestServerApplicationClassGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
+    /*public ServerApplicationClassGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, baseTemplatePath, skeletonProperties);
     }*/
 

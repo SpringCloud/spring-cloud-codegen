@@ -18,7 +18,7 @@ public class GeneratorTest {
     public static void main(String[] args) {
         try {
             // 创建文件的输出的路径
-            String generatePath = "/xujin/Skeleton/";
+            String generatePath = "E:/Download/Skeleton/";
 
             // 如果prefixTemplateDirectory和reducedTemplateDirectory同时为null，那么Generator类目录和Template目录必须完全一致
             // 模板文件所在的前置目录名
