@@ -89,6 +89,7 @@
     color: #999;
     font-size: 12px;
     z-index: 100000;
+    border-top: 4px solid #6db33f;
   }
 
   .SW_footer .layout {

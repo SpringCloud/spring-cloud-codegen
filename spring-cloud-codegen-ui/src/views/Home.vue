@@ -106,9 +106,9 @@ export default {
 	.header {
 		height: 60px;
 		line-height: 60px;
-		background: $color-primary;
-		color: #fff;
-		
+		background-color: #34302d;
+		color: #eee;
+    border-top: 4px solid #6db33f;
 		.userinfo {
 			text-align: right;
 			padding-right: 35px;
@@ -157,8 +157,10 @@ export default {
 			cursor: pointer;
 		}
 	}
+
+
 	.main {
-		// display: flex; 
+		// display: flex;
 		// background: #324057;
 		// position: absolute;
 		// top: 60px;
@@ -198,7 +200,7 @@ export default {
 		}
 		.content-container {
 			// background: #f1f2f7;
-			// flex: 1; 
+			// flex: 1;
 			// position: absolute;
 			// right: 0px;
 			// top: 0px;
@@ -223,6 +225,7 @@ export default {
 			}
 		}
 	}
+
 	.foot {
 		display: flex;
 		// position: absolute;

@@ -45,7 +45,7 @@
                 <div class="form-group" style="text-align:center;">
                   <div class="col-sm-12">
                     <a class="btn btn-default" v-on:click="refresh()">重置</a>
-                    <button class="btn btn-primary" type="submit">生成工程</button>
+                    <button style="background-color: #1ab394;border-color: #1ab394;color: #FFFFFF;" class="btn" type="submit">生成工程</button>
                   </div>
                 </div>
               </form>
