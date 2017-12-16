@@ -34,7 +34,7 @@
             <label></label>
             <description></description>
             <type>COMBOBOX</type>
-            <options>1.6;1.7;1.8</options>
+            <options>1.5.9;1.4.7;2.0.0</options>
             <highlightable>false</highlightable>
             <defaultable>false</defaultable>
             <emptiable>false</emptiable>
