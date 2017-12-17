@@ -23,7 +23,7 @@
                     </div>
                   </div>
                   <div class="form-group" v-else-if="module.type == 'COMBOBOX_GROUP' && index == 1">
-                    <h3 align="center" class="col-sm-8">Generate a
+                    <h3 align="center" class="col-sm-11">Generate a
                       <span class="good-span">
                         <el-select v-model="modules[number].entityList[0].value" :name="module.entityList[0].key">
                           <el-option v-for="project in module.entityList[0].options"  :label="project" :value="project"></el-option>
