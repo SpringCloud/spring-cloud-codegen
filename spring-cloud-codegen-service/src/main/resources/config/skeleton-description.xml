@@ -184,8 +184,19 @@
         <type>RADIO_GROUP</type>
         <layout>HORIZONTAL</layout>
         <entity>
-            <key>独立组件</key>
+            <key>alone</key>
             <label>独立组件</label>
+            <description></description>
+            <type>RADIO</type>
+            <value>false</value>
+            <highlightable>false</highlightable>
+            <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+        <entity>
+            <key>multy</key>
+            <label>可组合组件</label>
             <description></description>
             <type>RADIO</type>
             <value>false</value>
