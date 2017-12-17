@@ -1,4 +1,4 @@
-package cn.springcloud.codegen.service.test;
+package cn.springcloud.codegen.generator;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -9,8 +9,6 @@ package cn.springcloud.codegen.service.test;
  * @email 1394997@qq.com
  * @version 1.0
  */
-
-import cn.springcloud.codegen.service.generator.GeneratorService;
 
 import com.nepxion.skeleton.property.SkeletonProperties;
 
@@ -26,7 +24,7 @@ public class GeneratorTest {
             // String prefixTemplateDirectory = null;
 
             // 模板目录缩减
-            String reducedTemplateDirectory = "cn/springcloud/codegen/service/generator/";
+            String reducedTemplateDirectory = "cn/springcloud/codegen/generator/";
             // String reducedTemplateDirectory = null;
 
             // 描述规则的配置文件所在的路径

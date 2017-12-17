@@ -1,4 +1,4 @@
-package cn.springcloud.codegen.service.generator.server.java;
+package cn.springcloud.codegen.generator.server.java;
 
 /**
  * <p>Title: Nepxion Skeleton</p>

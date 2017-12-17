@@ -1,4 +1,4 @@
-package cn.springcloud.codegen.service.generator.server.test;
+package cn.springcloud.codegen.generator.server.java;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -10,12 +10,12 @@ package cn.springcloud.codegen.service.generator.server.test;
  * @version 1.0
  */
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.generator.SkeletonJavaGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class TestServerApplicationClassGenerator extends SkeletonJavaGenerator {
     /**
@@ -37,7 +37,7 @@ public class TestServerApplicationClassGenerator extends SkeletonJavaGenerator {
      * @param baseTemplatePath 模板文件的等级路径
      * @param skeletonProperties 全局配置文件对象
      */
-    /*public JavaClassGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
+    /*public TestServerApplicationClassGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, baseTemplatePath, skeletonProperties);
     }*/
 

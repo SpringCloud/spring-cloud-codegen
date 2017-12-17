@@ -1,4 +1,4 @@
-package cn.springcloud.codegen.service.generator.server.resources;
+package cn.springcloud.codegen.generator.server.resources;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -38,7 +38,7 @@ public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
      * @param fileType 创建的文件类型
      * @param skeletonProperties 全局配置文件对象
      */
-    /*public ResGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
+    /*public ApplicationPropertiesGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, baseTemplatePath, fileType, skeletonProperties);
     }*/
 

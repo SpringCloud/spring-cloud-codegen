@@ -10,15 +10,18 @@ package cn.springcloud.codegen.controller;
  * @version 1.0
  */
 
-import cn.springcloud.codegen.service.generator.GeneratorService;
+import cn.springcloud.codegen.service.SkeletonService;
+
 import com.nepxion.skeleton.entity.SkeletonGroup;
 import com.nepxion.skeleton.exception.SkeletonException;
 import com.nepxion.skeleton.property.SkeletonProperties;
 import com.nepxion.skeleton.transport.SkeletonConfigTransport;
 import com.nepxion.skeleton.transport.SkeletonDataTransport;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
@@ -32,6 +35,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
@@ -55,19 +59,19 @@ public class SkeletonController {
 
     private String templateDirectory;
 
-    private GeneratorService generatorService;
+    private SkeletonService service;
 
     private SkeletonConfigTransport configTransport;
     private SkeletonDataTransport dataTransport;
 
     @PostConstruct
     private void initialize() {
-        generatorService = new GeneratorService();
+        service = new SkeletonService();
         configTransport = new SkeletonConfigTransport();
         dataTransport = new SkeletonDataTransport() {
             @Override
             public void generate(String path, SkeletonProperties skeletonProperties) throws Exception {
-                generatorService.generator(path, templateDirectory, skeletonReducedTemplateDirectory, skeletonProperties);
+                service.generator(path, templateDirectory, skeletonReducedTemplateDirectory, skeletonProperties);
             }
         };
     }
