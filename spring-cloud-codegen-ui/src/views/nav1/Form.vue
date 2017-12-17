@@ -23,25 +23,25 @@
                     </div>
                   </div>
                   <div class="form-group" v-else-if="module.type == 'COMBOBOX_GROUP' && index == 1">
-                    <h3>Generate a
+                    <h2 align="center">Generate a
                       <span class="good-span">
                         <el-select v-model="modules[number].entityList[0].value" :name="module.entityList[0].key">
                           <el-option v-for="project in module.entityList[0].options"  :label="project" :value="project"></el-option>
                         </el-select>
                       </span>
-                      project with
+                       with
                       <span class="good-span">
                         <el-select v-model="modules[number].entityList[1].value" :name="module.entityList[1].key">
                           <el-option v-for="project2 in module.entityList[1].options"  :label="project2" :value="project2"></el-option>
                         </el-select>
                       </span>
-                      and language version
+                      and Spring Boot
                       <span class="good-span">
                         <el-select v-model="modules[number].entityList[2].value" :name="module.entityList[2].key">
                           <el-option v-for="project3 in module.entityList[2].options"  :label="project3" :value="project3"></el-option>
                         </el-select>
                       </span>
-                    </h3>
+                    </h2>
                   </div>
                   <div class="form-group" v-else-if="module.type == 'RADIO_GROUP' && index == 1">
                     <label class="col-sm-2 control-label" v-if="index == 1">{{ module.label }}</label>
