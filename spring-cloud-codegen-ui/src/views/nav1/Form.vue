@@ -22,6 +22,9 @@
                       </el-select>
                     </div>
                   </div>
+                  <div class="form-group" v-else-if="module.type == 'COMBOBOX_GROUP' && index == 1">
+                    {{ module }}
+                  </div>
                   <div class="form-group" v-else-if="module.type == 'RADIO_GROUP' && index == 1">
                     <label class="col-sm-2 control-label" v-if="index == 1">{{ module.label }}</label>
                     <div class="col-sm-10">
