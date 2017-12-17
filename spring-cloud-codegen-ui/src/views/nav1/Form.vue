@@ -23,7 +23,7 @@
                     </div>
                   </div>
                   <div class="form-group" v-else-if="module.type == 'COMBOBOX_GROUP' && index == 1">
-                    <h2 align="center">Generate a
+                    <h3 align="center" class="col-sm-8">Generate a
                       <span class="good-span">
                         <el-select v-model="modules[number].entityList[0].value" :name="module.entityList[0].key">
                           <el-option v-for="project in module.entityList[0].options"  :label="project" :value="project"></el-option>
@@ -41,7 +41,7 @@
                           <el-option v-for="project3 in module.entityList[2].options"  :label="project3" :value="project3"></el-option>
                         </el-select>
                       </span>
-                    </h2>
+                    </h3>
                   </div>
                   <div class="form-group" v-else-if="module.type == 'RADIO_GROUP' && index == 1">
                     <label class="col-sm-2 control-label" v-if="index == 1">{{ module.label }}</label>
