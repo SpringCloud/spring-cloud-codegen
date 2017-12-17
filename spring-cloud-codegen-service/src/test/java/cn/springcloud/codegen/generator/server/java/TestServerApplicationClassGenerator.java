@@ -54,7 +54,7 @@ public class TestServerApplicationClassGenerator extends SkeletonJavaGenerator {
      */
     @Override
     protected String getClassName() {
-        return "ServerApplication";
+        return "TestServerApplication";
     }
 
     /**
@@ -62,7 +62,7 @@ public class TestServerApplicationClassGenerator extends SkeletonJavaGenerator {
      */
     @Override
     protected String getTemplateName() {
-        return "ServerApplication.java.template";
+        return "TestServerApplication.java.template";
     }
 
     /**
