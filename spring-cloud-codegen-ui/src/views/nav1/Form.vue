@@ -23,7 +23,25 @@
                     </div>
                   </div>
                   <div class="form-group" v-else-if="module.type == 'COMBOBOX_GROUP' && index == 1">
-                    {{ module }}
+                    <h3>Generate a
+                      <span class="good-span">
+                        <el-select v-model="modules[number].entityList[0].value" :name="module.entityList[0].key">
+                          <el-option v-for="project in module.entityList[0].options"  :label="project" :value="project"></el-option>
+                        </el-select>
+                      </span>
+                      project with
+                      <span class="good-span">
+                        <el-select v-model="modules[number].entityList[1].value" :name="module.entityList[1].key">
+                          <el-option v-for="project2 in module.entityList[1].options"  :label="project2" :value="project2"></el-option>
+                        </el-select>
+                      </span>
+                      and language version
+                      <span class="good-span">
+                        <el-select v-model="modules[number].entityList[2].value" :name="module.entityList[2].key">
+                          <el-option v-for="project3 in module.entityList[2].options"  :label="project3" :value="project3"></el-option>
+                        </el-select>
+                      </span>
+                    </h3>
                   </div>
                   <div class="form-group" v-else-if="module.type == 'RADIO_GROUP' && index == 1">
                     <label class="col-sm-2 control-label" v-if="index == 1">{{ module.label }}</label>
@@ -68,8 +86,10 @@
   import N3Radio from "../../../node_modules/N3-components/src/Radio/n3Radio.vue";
   import ElCheckboxGroup from "../../../node_modules/element-ui/packages/checkbox/src/checkbox-group.vue";
   import ElCheckbox from "../../../node_modules/element-ui/packages/checkbox/src/checkbox.vue";
+  import ElOption from "../../../node_modules/element-ui/packages/select/src/option.vue";
   export default {
     components: {
+      ElOption,
       ElCheckbox,
       ElCheckboxGroup,
       N3Radio,
@@ -124,6 +144,13 @@
             list[i].value = true;
           }
         }
+        if (list[0].type == 'COMBOBOX') {
+          for (var i in list) {
+            if (list[i].value == null) {
+              list[i].value = list[i].options[0];
+            }
+          }
+        }
         return list;
       },
       refresh: function () {
@@ -140,6 +167,10 @@
   /*.gray-bg {*/
     /*margin-bottom: 300px;*/
   /*}*/
+  .good-span {
+    display: inline-block;
+    width: 100px;
+  }
   .info-tip button {
     font-size: 18px;
     color: #6DB345;
