@@ -6,7 +6,7 @@
             <div class="ibox-content">
               <form method="POST" class="form-horizontal" action="/v1/downloadResponse" enctype="text/plain">
                 <div class="module-item" v-for="(module,number) in modules" :key="number">
-                  <div class="form-group" v-if="module.entityList[0].type != 'RADIO' && item.type != 'CHECKBOX'" v-for="(item,index) in module.entityList">
+                  <div class="form-group" v-if="module.type == 'MIX_GROUP'" v-for="(item,index) in module.entityList">
                     <label v-if="item.type != 'RADIO' && item.type != 'CHECKBOX'" class="col-sm-2 control-label">{{ item.label }}</label>
                     <div class="col-sm-8" v-if="item.type != 'RADIO' && item.type != 'CHECKBOX'">
                       <input v-if="item.type == 'TEXTFIELD'" class="form-control" :name="item.key" :value="item.value" required>
@@ -22,7 +22,10 @@
                       </el-select>
                     </div>
                   </div>
-                  <div class="form-group" v-else-if="module.entityList[0].type == 'RADIO' && index == 1">
+                  <div class="form-group" v-else-if="module.type == 'COMBOBOX_GROUP' && index == 1">
+                    {{ module }}
+                  </div>
+                  <div class="form-group" v-else-if="module.type == 'RADIO_GROUP' && index == 1">
                     <label class="col-sm-2 control-label" v-if="index == 1">{{ module.label }}</label>
                     <div class="col-sm-10">
                       <div v-for="(radio,rnum) in module.entityList" class="col-sm-2" v-if="index == 1">
@@ -30,7 +33,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group" v-else-if="module.entityList[0].type == 'CHECKBOX' && index == 1">
+                  <div class="form-group" v-else-if="module.type == 'CHECKBOX_GROUP' && index == 1">
                     <label class="col-sm-2 control-label" v-if="index == 1" style="margin-top: -7px;">{{ module.label }}</label>
                     <div class="col-sm-10" v-if="index == 1">
                         <div v-for="(chkbox,cnum) in module.entityList" :class="'col-sm-2'">
@@ -109,6 +112,7 @@
           tmp.label = data[i].label;
           tmp.description = data[i].description;
           tmp.column = data[i].column;
+          tmp.type = data[i].type;
           tmp.entityList = this.chkEntityList(data[i].entityList);
           tmp.values = [];
           this.modules.push(tmp);
