@@ -10,7 +10,7 @@ package cn.springcloud.codegen.controller;
  * @version 1.0
  */
 
-import cn.springcloud.codegen.service.SkeletonService;
+import cn.springcloud.codegen.generator.SkeletonService;
 
 import com.nepxion.skeleton.entity.SkeletonGroup;
 import com.nepxion.skeleton.exception.SkeletonException;
