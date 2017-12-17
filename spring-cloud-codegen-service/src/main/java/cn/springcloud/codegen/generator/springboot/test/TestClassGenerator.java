@@ -1,4 +1,4 @@
-package cn.springcloud.codegen.service.generator.server.test;
+package cn.springcloud.codegen.generator.springboot.test;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -17,7 +17,7 @@ import com.nepxion.skeleton.property.SkeletonProperties;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TestServerApplicationClassGenerator extends SkeletonJavaGenerator {
+public class TestClassGenerator extends SkeletonJavaGenerator {
     /**
      * 构造方法
      * @param generatePath 创建文件的顶级路径
@@ -26,8 +26,8 @@ public class TestServerApplicationClassGenerator extends SkeletonJavaGenerator {
      * @param reducedTemplateDirectory 模板目录缩减，考虑到模板目录和类目录必须一致，会导致目录目录太长，可以缩减掉一部分
      * @param skeletonProperties 全局配置文件对象
      */
-    public TestServerApplicationClassGenerator(String generatePath, String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, TestServerApplicationClassGenerator.class, skeletonProperties);
+    public TestClassGenerator(String generatePath, String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, TestClassGenerator.class, skeletonProperties);
     }
 
     /**

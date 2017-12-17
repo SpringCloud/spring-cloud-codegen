@@ -1,4 +1,4 @@
-package cn.springcloud.codegen.service.generator.server.resources;
+package cn.springcloud.codegen.generator.springboot.resources;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -10,14 +10,14 @@ package cn.springcloud.codegen.service.generator.server.resources;
  * @version 1.0
  */
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
-public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
+import java.util.HashMap;
+import java.util.Map;
+
+public class ResGenerator extends SkeletonFileGenerator {
     /**
      * 构造方法
      * @param generatePath 创建文件的顶级路径
@@ -26,8 +26,8 @@ public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
      * @param reducedTemplateDirectory 模板目录缩减，考虑到模板目录和类目录必须一致，会导致目录目录太长，可以缩减掉一部分
      * @param skeletonProperties 全局配置文件对象
      */
-    public ApplicationPropertiesGenerator(String generatePath, String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, ApplicationPropertiesGenerator.class, skeletonProperties);
+    public ResGenerator(String generatePath, String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, ResGenerator.class, skeletonProperties);
     }
 
     /**

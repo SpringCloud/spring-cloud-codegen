@@ -1,4 +1,4 @@
-package cn.springcloud.codegen.service;
+package cn.springcloud.codegen;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -17,8 +17,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 @SpringBootApplication
 // @EnableDiscoveryClient
 @EnableAutoConfiguration
-public class SkeletonApplication {
+public class SmartCodeGenApplication {
     public static void main(String[] args) {
-        new SpringApplicationBuilder(SkeletonApplication.class).web(true).run(args);
+        new SpringApplicationBuilder(SmartCodeGenApplication.class).web(true).run(args);
     }
 }

@@ -1,4 +1,4 @@
-package cn.springcloud.codegen.service.controller;
+package cn.springcloud.codegen.controller;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -10,16 +10,15 @@ package cn.springcloud.codegen.service.controller;
  * @version 1.0
  */
 
+import cn.springcloud.codegen.service.generator.GeneratorService;
+import com.nepxion.skeleton.entity.SkeletonGroup;
+import com.nepxion.skeleton.exception.SkeletonException;
+import com.nepxion.skeleton.property.SkeletonProperties;
+import com.nepxion.skeleton.transport.SkeletonConfigTransport;
+import com.nepxion.skeleton.transport.SkeletonDataTransport;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.List;
-
-import javax.annotation.PostConstruct;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
@@ -32,13 +31,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import cn.springcloud.codegen.service.generator.GeneratorService;
-
-import com.nepxion.skeleton.entity.SkeletonGroup;
-import com.nepxion.skeleton.exception.SkeletonException;
-import com.nepxion.skeleton.property.SkeletonProperties;
-import com.nepxion.skeleton.transport.SkeletonConfigTransport;
-import com.nepxion.skeleton.transport.SkeletonDataTransport;
+import javax.annotation.PostConstruct;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.List;
 
 @RestController
 @Api(tags = { "脚手架接口" })
