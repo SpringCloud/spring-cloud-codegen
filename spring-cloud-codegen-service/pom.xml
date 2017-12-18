@@ -23,15 +23,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <repositories>
-        <repository>
-            <!-- DO NOT set id to "local" because it is reserved by Maven -->
-            <id>local-repository</id>
-            <name>Local Repository</name>
-            <url>file://${project.basedir}/repo</url>
-        </repository>
-    </repositories>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
