@@ -195,17 +195,6 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>multy</key>
-            <label>可组合组件</label>
-            <description></description>
-            <type>RADIO</type>
-            <value>false</value>
-            <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-        <entity>
             <key>service-provider</key>
             <label>服务提供者</label>
             <description></description>
