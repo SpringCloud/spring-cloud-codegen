@@ -15,13 +15,6 @@
     </parent>
 
     <properties>
-        <freemarker.version>2.3.26-incubating</freemarker.version>
-        <commons.lang3.version>3.6</commons.lang3.version>
-        <commons.collections4.version>4.1</commons.collections4.version>
-        <commons.io.version>2.5</commons.io.version>
-        <commons.configuration.version>1.10</commons.configuration.version>
-        <dom4j.version>1.6.1</dom4j.version>
-        <zip4j.version>1.3.2</zip4j.version>
         <spring.cloud.version>Dalston.SR4</spring.cloud.version>
         <!-- <spring.cloud.version>Edgware.RELEASE</spring.cloud.version> -->
         <swagger.version>2.7.0</swagger.version>
@@ -29,6 +22,15 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <repositories>
+        <repository>
+            <!-- DO NOT set id to "local" because it is reserved by Maven -->
+            <id>local-repository</id>
+            <name>Local Repository</name>
+            <url>file://${project.basedir}/repo</url>
+        </repository>
+    </repositories>
 
     <dependencyManagement>
         <dependencies>
@@ -43,48 +45,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>${freemarker.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${commons.lang3.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-collections4</artifactId>
-            <version>${commons.collections4.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>${commons.io.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-configuration</groupId>
-            <artifactId>commons-configuration</artifactId>
-            <version>${commons.configuration.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>dom4j</groupId>
-            <artifactId>dom4j</artifactId>
-            <version>${dom4j.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>net.lingala.zip4j</groupId>
-            <artifactId>zip4j</artifactId>
-            <version>${zip4j.version}</version>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
@@ -106,8 +66,6 @@
             <groupId>com.nepxion</groupId>
             <artifactId>skeleton-engine</artifactId>
             <version>${skeleton.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/skeleton-engine-${skeleton.version}.jar</systemPath>
         </dependency>
     </dependencies>
 
