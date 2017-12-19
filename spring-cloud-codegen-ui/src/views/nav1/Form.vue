@@ -103,6 +103,16 @@
           width: '100%'
         },
         modules: [],
+        rqGroup: [
+          'applicationType',
+          'sc-alone',
+          'sc-alone-radio',
+          'sc-group-checkBox'
+        ],
+        rqEntity: [
+          'springcloud',
+          'alone'
+        ],
       }
     },
     created () {
