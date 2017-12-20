@@ -20,7 +20,6 @@ import vc from 'vue-cookie'
 
 Mock.bootstrap();
 import 'font-awesome/css/font-awesome.min.css'
-
 import N3Components from 'N3-components'
 import 'N3-components/dist/index.min.css'
 

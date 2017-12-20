@@ -6,71 +6,62 @@
             <div class="ibox-content">
               <form method="POST" class="form-horizontal" action="/v1/downloadResponse" enctype="text/plain">
                 <div class="module-item" v-for="(module,number) in modules" :key="number">
-                  <transition name="fade" v-if="module.type == 'MIX_GROUP'" v-for="(item,index) in module.entityList">
-                    <div class="form-group">
-                      <label v-if="item.type != 'RADIO' && item.type != 'CHECKBOX'" class="col-sm-2 control-label">{{ item.label }}</label>
-                      <div class="col-sm-8" v-if="item.type != 'RADIO' && item.type != 'CHECKBOX'">
-                        <input v-if="item.type == 'TEXTFIELD'" class="form-control" :name="item.key" :value="item.value" required>
-                        <span v-if="item.highlightable && item.type == 'TEXTFIELD'" class="must-need">*</span>
-                        <span v-if="item.note != null && item.type == 'TEXTFIELD'" class="info-tip">
+                  <div class="form-group" v-if="module.type == 'MIX_GROUP'" v-for="(item,index) in module.entityList">
+                    <label v-if="item.type != 'RADIO' && item.type != 'CHECKBOX'" class="col-sm-2 control-label">{{ item.label }}</label>
+                    <div class="col-sm-8" v-if="item.type != 'RADIO' && item.type != 'CHECKBOX'">
+                      <input v-if="item.type == 'TEXTFIELD'" class="form-control" :name="item.key" :value="item.value" required>
+                      <span v-if="item.highlightable && item.type == 'TEXTFIELD'" class="must-need">*</span>
+                      <span v-if="item.note != null && item.type == 'TEXTFIELD'" class="info-tip">
                         <el-tooltip class="item" effect="dark" placement="right">
                           <div slot="content" class="content-box">{{ item.note }}</div>
                           <el-button class="el-icon-question"></el-button>
                         </el-tooltip>
                       </span>
-                        <el-select v-if="item.type == 'COMBOBOX'" v-model="modules[number].entityList[index].value" :name="item.key" :select2Style="select2Style" :placeholder="item.label">
-                          <el-option v-if="item.type == 'COMBOBOX'" v-for="option in item.options" :key="number" :label="option" :value="option"></el-option>
-                        </el-select>
-                      </div>
+                      <el-select v-if="item.type == 'COMBOBOX'" v-model="modules[number].entityList[index].value" :name="item.key" :select2Style="select2Style" :placeholder="item.label">
+                        <el-option v-if="item.type == 'COMBOBOX'" v-for="option in item.options" :key="number" :label="option" :value="option"></el-option>
+                      </el-select>
                     </div>
-                  </transition>
-                  <transition name="fade" v-else-if="module.type == 'COMBOBOX_GROUP' && index == 1">
-                    <div class="form-group">
-                      <h3 align="center" class="col-sm-11">Generate a
-                        <span class="good-span">
+                  </div>
+                  <div class="form-group" v-else-if="module.type == 'COMBOBOX_GROUP' && index == 1">
+                    <h3 align="center" class="col-sm-11">Generate a
+                      <span class="good-span">
                         <el-select v-model="modules[number].entityList[0].value" :name="module.entityList[0].key">
                           <el-option v-for="project in module.entityList[0].options"  :label="project" :value="project"></el-option>
                         </el-select>
                       </span>
-                        with
-                        <span class="good-span">
+                      with
+                      <span class="good-span">
                         <el-select v-model="modules[number].entityList[1].value" :name="module.entityList[1].key">
                           <el-option v-for="project2 in module.entityList[1].options"  :label="project2" :value="project2"></el-option>
                         </el-select>
                       </span>
-                        and Spring Boot
-                        <span class="good-span">
+                      and Spring Boot
+                      <span class="good-span">
                         <el-select v-model="modules[number].entityList[2].value" :name="module.entityList[2].key">
                           <el-option v-for="project3 in module.entityList[2].options"  :label="project3" :value="project3"></el-option>
                         </el-select>
                       </span>
-                      </h3>
-                    </div>
-                  </transition>
-                  <transition name="fade" v-else-if="module.type == 'RADIO_GROUP' && index == 1">
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label" v-if="index == 1">{{ module.label }}</label>
-                      <div class="col-sm-10">
-                        <div v-for="(radio,rnum) in module.entityList" class="col-sm-2" v-if="index == 1">
-                          <el-radio  :label="radio.key" v-model="item.value" :name="module.key" >{{ radio.label }}</el-radio>
-                        </div>
+                    </h3>
+                  </div>
+                  <div class="form-group" v-else-if="module.type == 'RADIO_GROUP' && index == 1 && module.key != 'sc-alone'">
+                    <label class="col-sm-2 control-label" v-if="index == 1">{{ module.label }}</label>
+                    <div class="col-sm-10">
+                      <div v-for="(radio,rnum) in module.entityList" class="col-sm-2" v-if="index == 1">
+                        <el-radio  :label="radio.key" v-model="item.value" :name="module.key" >{{ radio.label }}</el-radio>
                       </div>
                     </div>
-                  </transition>
-                  <transition name="fade" v-else-if="module.type == 'CHECKBOX_GROUP' && index == 1">
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label" v-if="index == 1" style="margin-top: -7px;">{{ module.label }}</label>
-                      <div class="col-sm-10" v-if="index == 1">
-                        <div v-for="(chkbox,cnum) in module.entityList" :class="'col-sm-2'">
-                          <el-checkbox  :label="modules[number].entityList[cnum].value" :name="chkbox.key" style="color:#666">{{ chkbox.label }}</el-checkbox>
-                          <span v-if="chkbox.defaultable" class="recommend">（推荐）</span>
-                        </div>
+                  </div>
+                  <div class="form-group" v-else-if="module.type == 'CHECKBOX_GROUP' && index == 1">
+                    <label class="col-sm-2 control-label" v-if="index == 1" style="margin-top: -7px;">{{ module.label }}</label>
+                    <div class="col-sm-10" v-if="index == 1">
+                      <div v-for="(chkbox,cnum) in module.entityList" :class="'col-sm-2'">
+                        <el-checkbox  :label="modules[number].entityList[cnum].value" :name="chkbox.key" style="color:#666">{{ chkbox.label }}</el-checkbox>
+                        <span v-if="chkbox.defaultable" class="recommend">（推荐）</span>
                       </div>
                     </div>
-                  </transition>
-                  <hr>
+                  </div>
+                  <div class="hr-line-dashed" v-if="hrShow[module.key]"></div>
                 </div>
-                <div class="hr-line-dashed"></div>
                 <div class="form-group" style="text-align:center;">
                   <div class="col-sm-12">
                     <a class="btn btn-default" v-on:click="refresh()">重置</a>
@@ -121,7 +112,7 @@
           'springcloud',
           'alone'
         ],
-        show:true,
+        hrShow: {},
       }
     },
     created () {
@@ -140,6 +131,7 @@
           dataType: 'json',
           success: function (data) {
             vue.builtModules(data);
+            vue.hideHr();
           }
         });
       },
@@ -155,7 +147,11 @@
           tmp.entityList = this.chkEntityList(data[i].entityList);
           tmp.values = [];
           this.modules.push(tmp);
+          this.hrShow[tmp.key] = true;
         }
+      },
+      hideHr: function () {
+        this.hrShow['sc-alone'] = false;
       },
       chkEntityList: function (list) {
         if (list[0].type == 'CHECKBOX') {
@@ -186,6 +182,7 @@
   /*.gray-bg {*/
     /*margin-bottom: 300px;*/
   /*}*/
+  .hr-line-dashed{border-top:1px dashed #e7eaec;color:#fff;background-color:#fff;height:1px;margin:20px 0}
   .good-span {
     display: inline-block;
     width: 100px;
