@@ -88,7 +88,18 @@
                       </div>
                     </div>
                   </transition>
-                  <transition name="fade" v-else-if="module.type == 'CHECKBOX_GROUP' && index == 1 && module.key != 'sc-group-checkBox'">
+                  <transition name="fade" v-else-if="module.type == 'CHECKBOX_GROUP' && index ==1 && module.key == 'basic-framework' && showBasicFramework">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" v-if="index == 1" style="margin-top: -7px;">{{ module.label }}</label>
+                      <div class="col-sm-10" v-if="index == 1">
+                        <div v-for="(chkbox,cnum) in module.entityList" :class="'col-sm-2'">
+                          <el-checkbox  :label="modules[number].entityList[cnum].value" :name="chkbox.key" style="color:#666">{{ chkbox.label }}</el-checkbox>
+                          <span v-if="chkbox.defaultable" class="recommend">（推荐）</span>
+                        </div>
+                      </div>
+                    </div>
+                  </transition>
+                  <transition name="fade" v-else-if="module.type == 'CHECKBOX_GROUP' && index == 1 && module.key != 'sc-group-checkBox' && module.key != 'basic-framework'">
                     <div class="form-group">
                       <label class="col-sm-2 control-label" v-if="index == 1" style="margin-top: -7px;">{{ module.label }}</label>
                       <div class="col-sm-10" v-if="index == 1">
@@ -154,6 +165,7 @@
         showScAlone: false,
         showScAloneRadio: false,
         showScGroupCheckBox: false,
+        showBasicFramework: false,
       }
     },
     created () {
@@ -171,6 +183,22 @@
 
           this.showScGroupCheckBox = false;
           this.hrShow['sc-group-checkBox'] = false;
+
+          this.showBasicFramework = false;
+          this.hrShow['basic-framework'] = false;
+        } else if(choice == 'springboot') {
+          //显示基础框架
+          this.showScAlone = false;
+          this.hrShow['sc-alone'] = false;
+
+          this.showScAloneRadio = false;
+          this.hrShow['sc-alone-radio'] = false;
+
+          this.showScGroupCheckBox = false;
+          this.hrShow['sc-group-checkBox'] = false;
+
+          this.showBasicFramework = true;
+          this.hrShow['basic-framework'] = true;
         } else {
           //隐藏springCloud
           this.showScAlone = false;
@@ -181,6 +209,9 @@
 
           this.showScGroupCheckBox = false;
           this.hrShow['sc-group-checkBox'] = false;
+
+          this.showBasicFramework = false;
+          this.hrShow['basic-framework'] = false;
         }
       },
       scType: function (choice) {
@@ -191,6 +222,9 @@
 
           this.showScGroupCheckBox = false;
           this.hrShow['sc-group-checkBox'] = false;
+
+          this.showBasicFramework = false;
+          this.hrShow['basic-framework'] = false;
         } else {
           //组合组件
           this.showScAloneRadio = false;
@@ -198,10 +232,14 @@
 
           this.showScGroupCheckBox = true;
           this.hrShow['sc-group-checkBox'] = true;
+
+          this.showBasicFramework = true;
+          this.hrShow['basic-framework'] = true;
         }
       }
     },
     methods: {
+
       fetchData: async function () {
         this.getInitJq('getMetaData');
       },
@@ -237,6 +275,7 @@
         this.hrShow['sc-alone'] = false;
         this.hrShow['sc-alone-radio'] = false;
         this.hrShow['sc-group-checkBox'] = false;
+        this.hrShow['basic-framework'] = false;
       },
       chkEntityList: function (list) {
         if (list[0].type == 'CHECKBOX') {
