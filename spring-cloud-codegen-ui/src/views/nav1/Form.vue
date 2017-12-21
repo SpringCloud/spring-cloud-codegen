@@ -165,10 +165,22 @@
           //显示springCloud
           this.showScAlone = true;
           this.hrShow['sc-alone'] = true;
+
+          this.showScAloneRadio = false;
+          this.hrShow['sc-alone-radio'] = false;
+
+          this.showScGroupCheckBox = false;
+          this.hrShow['sc-group-checkBox'] = false;
         } else {
           //隐藏springCloud
           this.showScAlone = false;
           this.hrShow['sc-alone'] = false;
+
+          this.showScAloneRadio = false;
+          this.hrShow['sc-alone-radio'] = false;
+
+          this.showScGroupCheckBox = false;
+          this.hrShow['sc-group-checkBox'] = false;
         }
       },
       scType: function (choice) {
