@@ -77,8 +77,7 @@
                       </div>
                     </div>
                   </transition>
-
-                  <transition name="fade" v-else-if="module.type == 'CHECKBOX_GROUP' && index == 1">
+                  <transition name="fade" v-else-if="module.type == 'CHECKBOX_GROUP' && index == 1 && module.key == 'sc-group-checkBox' && showScGroupCheckBox">
                     <div class="form-group">
                       <label class="col-sm-2 control-label" v-if="index == 1" style="margin-top: -7px;">{{ module.label }}</label>
                       <div class="col-sm-10" v-if="index == 1">
@@ -89,7 +88,21 @@
                       </div>
                     </div>
                   </transition>
-                  <div class="hr-line-dashed" v-if="hrShow[module.key]"></div>
+                  <transition name="fade" v-else-if="module.type == 'CHECKBOX_GROUP' && index == 1 && module.key != 'sc-group-checkBox'">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" v-if="index == 1" style="margin-top: -7px;">{{ module.label }}</label>
+                      <div class="col-sm-10" v-if="index == 1">
+                        <div v-for="(chkbox,cnum) in module.entityList" :class="'col-sm-2'">
+                          <el-checkbox  :label="modules[number].entityList[cnum].value" :name="chkbox.key" style="color:#666">{{ chkbox.label }}</el-checkbox>
+                          <span v-if="chkbox.defaultable" class="recommend">（推荐）</span>
+                        </div>
+                      </div>
+                    </div>
+                  </transition>
+                  <transition name="fade">
+                    <div class="hr-line-dashed" v-if="hrShow[module.key]"></div>
+                  </transition>
+
                 </div>
                 <div class="form-group" style="text-align:center;">
                   <div class="col-sm-12">
@@ -163,10 +176,16 @@
           //独立组件
           this.showScAloneRadio = true;
           this.hrShow['sc-alone-radio'] = true;
+
+          this.showScGroupCheckBox = false;
+          this.hrShow['sc-group-checkBox'] = false;
         } else {
           //组合组件
           this.showScAloneRadio = false;
           this.hrShow['sc-alone-radio'] = false;
+
+          this.showScGroupCheckBox = true;
+          this.hrShow['sc-group-checkBox'] = true;
         }
       }
     },
@@ -205,6 +224,7 @@
       hideHr: function () {
         this.hrShow['sc-alone'] = false;
         this.hrShow['sc-alone-radio'] = false;
+        this.hrShow['sc-group-checkBox'] = false;
       },
       chkEntityList: function (list) {
         if (list[0].type == 'CHECKBOX') {
