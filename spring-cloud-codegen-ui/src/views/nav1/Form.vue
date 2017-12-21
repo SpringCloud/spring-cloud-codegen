@@ -47,9 +47,10 @@
                     <label class="col-sm-2 control-label" v-if="index == 1">{{ module.label }}</label>
                     <div class="col-sm-10">
                       <div v-for="(radio,rnum) in module.entityList" class="col-sm-2" v-if="index == 1">
-                        <el-radio  :label="radio.key" v-model="item.value" :name="module.key" >{{ radio.label }}</el-radio>
+                        <el-radio  :label="radio.key" v-model="item.value" :name="module.key">{{ radio.label }}</el-radio>
                       </div>
                     </div>
+                    {{ item }}
                   </div>
                   <div class="form-group" v-else-if="module.type == 'CHECKBOX_GROUP' && index == 1">
                     <label class="col-sm-2 control-label" v-if="index == 1" style="margin-top: -7px;">{{ module.label }}</label>
@@ -102,21 +103,26 @@
           width: '100%'
         },
         modules: [],
-        rqGroup: [
-          'applicationType',
-          'sc-alone',
-          'sc-alone-radio',
-          'sc-group-checkBox'
-        ],
-        rqEntity: [
-          'springcloud',
-          'alone'
-        ],
+        rqGroup: {
+          'applicationType': 0,
+          'sc-alone': 0,
+          'sc-alone-radio': 0,
+          'sc-group-checkBox': 0
+        },
+        rqEntity: {
+          'springcloud': 0,
+          'alone': 0
+        },
         hrShow: {},
       }
     },
     created () {
       this.fetchData()
+    },
+    watch: {
+//      modules[]: function (choice) {
+//
+//      }
     },
     methods: {
       fetchData: async function () {
@@ -152,6 +158,9 @@
       },
       hideHr: function () {
         this.hrShow['sc-alone'] = false;
+      },
+      showRadioData: function (data) {
+        console.log(data);
       },
       chkEntityList: function (list) {
         if (list[0].type == 'CHECKBOX') {
