@@ -52,12 +52,22 @@
                       <label class="col-sm-2 control-label" v-if="index == 1">{{ module.label }}</label>
                       <div class="col-sm-10">
                         <div v-for="(radio,rnum) in module.entityList" class="col-sm-2" v-if="index == 1">
-                          <el-radio  :label="radio.key" v-model="applicationType" :name="module.key">{{ radio.label }}</el-radio>
+                          <el-radio  :label="radio.key" v-model="scType" :name="module.key">{{ radio.label }}</el-radio>
                         </div>
                       </div>
                     </div>
                   </transition>
-                  <transition name="fade" v-else-if="module.type == 'RADIO_GROUP' && index == 1 && module.key != 'sc-alone' ">
+                  <transition name="fade" v-else-if="module.type == 'RADIO_GROUP' && index == 1 && module.key == 'sc-alone-radio' && showScAloneRadio">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" v-if="index == 1">{{ module.label }}</label>
+                      <div class="col-sm-10">
+                        <div v-for="(radio,rnum) in module.entityList" class="col-sm-2" v-if="index == 1">
+                          <el-radio  :label="radio.key" v-model="item.value" :name="module.key">{{ radio.label }}</el-radio>
+                        </div>
+                      </div>
+                    </div>
+                  </transition>
+                  <transition name="fade" v-else-if="module.type == 'RADIO_GROUP' && index == 1 && module.key != 'sc-alone' && module.key != 'sc-alone-radio' ">
                     <div class="form-group" >
                       <label class="col-sm-2 control-label" v-if="index == 1">{{ module.label }}</label>
                       <div class="col-sm-10">
@@ -67,6 +77,7 @@
                       </div>
                     </div>
                   </transition>
+
                   <transition name="fade" v-else-if="module.type == 'CHECKBOX_GROUP' && index == 1">
                     <div class="form-group">
                       <label class="col-sm-2 control-label" v-if="index == 1" style="margin-top: -7px;">{{ module.label }}</label>
@@ -121,19 +132,22 @@
         },
         modules: [],
         applicationType: '', //应用类型
+        scType: '',//springcloud组件类型
         rqEntity: {
           'springcloud': 0,
           'alone': 0
         },
         hrShow: {},
         showScAlone: false,
+        showScAloneRadio: false,
+        showScGroupCheckBox: false,
       }
     },
     created () {
       this.fetchData()
     },
     watch: {
-      applicationType : function (choice) {
+      applicationType: function (choice) {
         if (choice == 'springcloud') {
           //显示springCloud
           this.showScAlone = true;
@@ -142,6 +156,17 @@
           //隐藏springCloud
           this.showScAlone = false;
           this.hrShow['sc-alone'] = false;
+        }
+      },
+      scType: function (choice) {
+        if (choice == 'alone') {
+          //独立组件
+          this.showScAloneRadio = true;
+          this.hrShow['sc-alone-radio'] = true;
+        } else {
+          //组合组件
+          this.showScAloneRadio = false;
+          this.hrShow['sc-alone-radio'] = false;
         }
       }
     },
@@ -179,6 +204,7 @@
       },
       hideHr: function () {
         this.hrShow['sc-alone'] = false;
+        this.hrShow['sc-alone-radio'] = false;
       },
       chkEntityList: function (list) {
         if (list[0].type == 'CHECKBOX') {
