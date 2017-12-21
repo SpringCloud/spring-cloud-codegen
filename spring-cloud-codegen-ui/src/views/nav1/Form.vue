@@ -47,7 +47,7 @@
                       </h3>
                     </div>
                   </transition>
-                  <transition name="fade" v-else-if="module.type == 'RADIO_GROUP' && index == 1 && module.key == 'sc-alone'">
+                  <transition name="fade" v-else-if="module.type == 'RADIO_GROUP' && index == 1 && module.key == 'sc-alone' && showScAlone">
                     <div class="form-group">
                       <label class="col-sm-2 control-label" v-if="index == 1">{{ module.label }}</label>
                       <div class="col-sm-10">
@@ -57,7 +57,7 @@
                       </div>
                     </div>
                   </transition>
-                  <transition name="fade" v-else-if="module.type == 'RADIO_GROUP' && index == 1">
+                  <transition name="fade" v-else-if="module.type == 'RADIO_GROUP' && index == 1 && module.key != 'sc-alone' ">
                     <div class="form-group" >
                       <label class="col-sm-2 control-label" v-if="index == 1">{{ module.label }}</label>
                       <div class="col-sm-10">
@@ -126,6 +126,7 @@
           'alone': 0
         },
         hrShow: {},
+        showScAlone: false,
       }
     },
     created () {
@@ -135,10 +136,12 @@
       applicationType : function (choice) {
         if (choice == 'springcloud') {
           //显示springCloud
-
+          this.showScAlone = true;
+          this.hrShow['sc-alone'] = true;
         } else {
           //隐藏springCloud
-
+          this.showScAlone = false;
+          this.hrShow['sc-alone'] = false;
         }
       }
     },
