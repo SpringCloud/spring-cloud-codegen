@@ -11,12 +11,15 @@ package cn.springcloud.codegen.generator;
  */
 
 import com.nepxion.skeleton.property.SkeletonProperties;
+import com.nepxion.skeleton.util.SkeletonUtil;
 
 public class SkeletonTest {
     public static void main(String[] args) {
         try {
             // 创建文件的输出的路径
-            String generatePath = "E:/Download/Skeleton/";
+            // 放在操作系统的临时目录下
+            String generatePath = SkeletonUtil.getTempGeneratePath();
+            // String generatePath = "E:/Download/skeleton/";
 
             // 如果prefixTemplateDirectory和reducedTemplateDirectory同时为null，那么Generator类目录和Template目录必须完全一致
             // 模板文件所在的前置目录名
