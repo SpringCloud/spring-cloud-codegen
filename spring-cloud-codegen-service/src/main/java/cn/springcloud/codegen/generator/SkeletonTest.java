@@ -10,6 +10,7 @@ package cn.springcloud.codegen.generator;
  * @version 1.0
  */
 
+import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.property.SkeletonProperties;
 import com.nepxion.skeleton.util.SkeletonUtil;
 
@@ -34,7 +35,7 @@ public class SkeletonTest {
             String propertiesPath = "config/skeleton-data.properties";
 
             // 构造全局配置文件对象
-            SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
+            SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath, SkeletonConstant.ENCODING_UTF_8);
 
             // 输出脚手架文件
             SkeletonService skeletonService = new SkeletonService();
