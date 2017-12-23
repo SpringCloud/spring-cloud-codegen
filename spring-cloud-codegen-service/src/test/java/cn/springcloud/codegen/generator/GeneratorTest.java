@@ -35,7 +35,8 @@ public class GeneratorTest {
             String propertiesPath = "config/skeleton-data.properties";
 
             // 构造全局配置文件对象
-            SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath, SkeletonConstant.ENCODING_UTF_8);
+            // 配置文件含中文，stringEncoding必须为GBK，readerEncoding必须为UTF-8，文本文件编码必须为ANSI
+            SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
 
             // 输出脚手架文件
             GeneratorService generatorService = new GeneratorService();

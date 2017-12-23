@@ -32,10 +32,11 @@ public class SkeletonTest {
             // String reducedTemplateDirectory = null;
 
             // 描述规则的配置文件所在的路径
+            // 配置文件含中文，stringEncoding必须为GBK，readerEncoding必须为UTF-8，文本文件编码必须为ANSI
             String propertiesPath = "config/skeleton-data.properties";
 
             // 构造全局配置文件对象
-            SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath, SkeletonConstant.ENCODING_UTF_8);
+            SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
 
             // 输出脚手架文件
             SkeletonService skeletonService = new SkeletonService();
