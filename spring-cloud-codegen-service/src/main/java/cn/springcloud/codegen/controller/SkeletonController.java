@@ -12,11 +12,11 @@ package cn.springcloud.codegen.controller;
 
 import cn.springcloud.codegen.generator.SkeletonService;
 
-import com.nepxion.skeleton.entity.SkeletonGroup;
-import com.nepxion.skeleton.exception.SkeletonException;
-import com.nepxion.skeleton.property.SkeletonProperties;
-import com.nepxion.skeleton.transport.SkeletonConfigTransport;
-import com.nepxion.skeleton.transport.SkeletonDataTransport;
+import com.nepxion.skeleton.engine.entity.SkeletonGroup;
+import com.nepxion.skeleton.engine.exception.SkeletonException;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.transport.SkeletonConfigTransport;
+import com.nepxion.skeleton.engine.transport.SkeletonDataTransport;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

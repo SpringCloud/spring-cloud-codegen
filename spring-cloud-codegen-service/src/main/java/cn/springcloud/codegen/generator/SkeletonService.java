@@ -12,8 +12,8 @@ package cn.springcloud.codegen.generator;
 
 import java.io.IOException;
 
-import com.nepxion.skeleton.exception.SkeletonException;
-import com.nepxion.skeleton.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.exception.SkeletonException;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 import freemarker.template.TemplateException;
 

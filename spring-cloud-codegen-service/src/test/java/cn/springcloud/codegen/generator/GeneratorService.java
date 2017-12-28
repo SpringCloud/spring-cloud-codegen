@@ -18,8 +18,8 @@ import cn.springcloud.codegen.generator.server.java.TestServerApplicationClassGe
 import cn.springcloud.codegen.generator.server.resources.ApplicationPropertiesGenerator;
 import cn.springcloud.codegen.generator.server.resources.LogbackXmlGenerator;
 
-import com.nepxion.skeleton.exception.SkeletonException;
-import com.nepxion.skeleton.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.exception.SkeletonException;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 import freemarker.template.TemplateException;
 

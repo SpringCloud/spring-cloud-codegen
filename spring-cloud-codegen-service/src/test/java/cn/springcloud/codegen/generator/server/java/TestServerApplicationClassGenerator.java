@@ -13,9 +13,9 @@ package cn.springcloud.codegen.generator.server.java;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.nepxion.skeleton.constant.SkeletonConstant;
-import com.nepxion.skeleton.generator.SkeletonJavaGenerator;
-import com.nepxion.skeleton.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.generator.SkeletonJavaGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class TestServerApplicationClassGenerator extends SkeletonJavaGenerator {
     /**

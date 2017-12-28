@@ -13,9 +13,9 @@ package cn.springcloud.codegen.generator.server.resources;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.nepxion.skeleton.constant.SkeletonConstant;
-import com.nepxion.skeleton.generator.SkeletonFileGenerator;
-import com.nepxion.skeleton.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
     /**
