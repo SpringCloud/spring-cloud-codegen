@@ -10,9 +10,12 @@ package cn.springcloud.codegen.generator;
  * @version 1.0
  */
 
+import cn.springcloud.codegen.service.SkeletonServiceImpl;
+
 import com.nepxion.skeleton.engine.constant.SkeletonConstant;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.engine.util.SkeletonUtil;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 
 public class SkeletonTest {
     public static void main(String[] args) {
@@ -39,7 +42,7 @@ public class SkeletonTest {
             SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
 
             // 输出脚手架文件
-            SkeletonService skeletonService = new SkeletonService();
+            SkeletonService skeletonService = new SkeletonServiceImpl();
             skeletonService.generator(generatePath, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
         } catch (Exception e) {
             e.printStackTrace();

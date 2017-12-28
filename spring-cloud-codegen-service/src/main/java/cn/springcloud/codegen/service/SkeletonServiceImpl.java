@@ -1,4 +1,4 @@
-package cn.springcloud.codegen.generator;
+package cn.springcloud.codegen.service;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -14,10 +14,12 @@ import java.io.IOException;
 
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 
 import freemarker.template.TemplateException;
 
-public class SkeletonService {
+public class SkeletonServiceImpl implements SkeletonService {
+    @Override
     public void generator(String path, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
 
     }
