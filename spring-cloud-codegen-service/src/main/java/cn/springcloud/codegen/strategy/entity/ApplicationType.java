@@ -1,14 +1,12 @@
-package cn.springcloud.codegen.enums;
+package cn.springcloud.codegen.strategy.entity;
 
 /**
  * @author xujin
  * @site www.xujin.org
  */
-public enum AppTypeEnum {
-
-    SPRING_BOOT("sc", "Spring Boot应用"),
-
-    Spring_Cloud("sc","Spring Cloud应用");
+public enum ApplicationType {
+    SPRING_BOOT("springboot", "Spring Boot应用"),
+    SPRING_CLOUD("springcloud", "Spring Cloud应用");
 
     /**
      * key值
@@ -20,7 +18,7 @@ public enum AppTypeEnum {
      */
     private String description;
 
-    private AppTypeEnum(String key, String description) {
+    private ApplicationType(String key, String description) {
         this.key = key;
         this.description = description;
     }
@@ -28,13 +26,14 @@ public enum AppTypeEnum {
     public String key() {
         return key;
     }
+
     public String description() {
         return description;
     }
 
-    public static AppTypeEnum keyOf(int key) {
-        for(AppTypeEnum type : AppTypeEnum.values()) {
-            if(type.key().equals(key) ) {
+    public static ApplicationType keyOf(int key) {
+        for (ApplicationType type : ApplicationType.values()) {
+            if (type.key().equals(key)) {
                 return type;
             }
         }
