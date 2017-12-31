@@ -4,6 +4,7 @@
         <artifactId>spring-cloud-codegen</artifactId>
         <groupId>cn.springcloud.codegen</groupId>
         <version>1.0.0</version>
+        <relativePath>..</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 

@@ -12,6 +12,7 @@
         <artifactId>spring-cloud-codegen</artifactId>
         <groupId>cn.springcloud.codegen</groupId>
         <version>1.0.0</version>
+        <relativePath>..</relativePath>
     </parent>
 
 
@@ -25,7 +26,7 @@
 
        <dependency>
             <groupId>cn.springcloud.codegen</groupId>
-            <artifactId>spring-cloud-codegen-engine</artifactId>
+            <artifactId>spring-cloud-codegen-adapter</artifactId>
            <version>1.0.0</version>
         </dependency>
     </dependencies>
