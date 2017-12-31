@@ -10,12 +10,12 @@ package cn.springcloud.codegen.generator;
  * @version 1.0
  */
 
-import cn.springcloud.codegen.service.SkeletonServiceImpl;
+import cn.springcloud.codegen.service.impl.SkeletonServiceImpl;
 
-import com.nepxion.skeleton.engine.constant.SkeletonConstant;
-import com.nepxion.skeleton.engine.property.SkeletonProperties;
-import com.nepxion.skeleton.engine.util.SkeletonUtil;
-import com.nepxion.skeleton.framework.service.SkeletonService;
+import cn.springcloud.codegen.engine.constant.SkeletonConstant;
+import cn.springcloud.codegen.engine.property.SkeletonProperties;
+import cn.springcloud.codegen.engine.util.SkeletonUtil;
+import cn.springcloud.codegen.service.SkeletonService;
 
 public class SkeletonTest {
     public static void main(String[] args) {
