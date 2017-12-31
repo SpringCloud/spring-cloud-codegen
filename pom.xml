@@ -12,6 +12,7 @@
     <modules>
         <module>spring-cloud-codegen-service</module>
         <module>spring-cloud-codegen-engine</module>
+        <module>spring-cloud-codegen-ui</module>
         <module>docs</module>
     </modules>
 
