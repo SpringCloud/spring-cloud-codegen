@@ -22,19 +22,19 @@ public class TestClassGenerator extends SkeletonJavaGenerator {
      * 构造方法
      * @param generatePath 创建文件的顶级路径
      * @param projectType 工程类型
-     * @param prefixTemplateDirectory 前置模板目录名，例如template
-     * @param reducedTemplateDirectory 模板目录缩减，考虑到模板目录和类目录必须一致，会导致目录目录太长，可以缩减掉一部分
+     * @param prefixTemplatePath 前置模板路径，例如template
+     * @param reducedTemplatePath 模板路径缩减，考虑到模板路径和类路径必须一致，会导致路径太长，可以缩减掉一部分
      * @param skeletonProperties 全局配置文件对象
      */
-    public TestClassGenerator(String generatePath, String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, TestClassGenerator.class, skeletonProperties);
+    public TestClassGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, TestClassGenerator.class, skeletonProperties);
     }
 
     /**
      * 构造方法
      * @param generatePath 创建文件的顶级路径
      * @param projectType 工程类型
-     * @param baseTemplatePath 模板文件的等级路径
+     * @param baseTemplatePath 模板文件的顶级路径径
      * @param skeletonProperties 全局配置文件对象
      */
     /*public JavaClassGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {

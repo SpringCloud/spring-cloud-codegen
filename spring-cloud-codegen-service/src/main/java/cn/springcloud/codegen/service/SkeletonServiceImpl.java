@@ -20,7 +20,7 @@ import freemarker.template.TemplateException;
 
 public class SkeletonServiceImpl implements SkeletonService {
     @Override
-    public void generate(String generatePath, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
+    public void generate(String generatePath, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
 
     }
 }
