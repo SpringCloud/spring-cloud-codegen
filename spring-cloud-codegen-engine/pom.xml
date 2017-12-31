@@ -14,50 +14,35 @@
     <name>spring-cloud-codegen-engine</name>
     <url>http://maven.apache.org</url>
 
-    <properties>
-        <commons.lang3.version>3.6</commons.lang3.version>
-        <commons.collections4.version>4.1</commons.collections4.version>
-        <commons.io.version>2.5</commons.io.version>
-        <freemarker.version>2.3.26-incubating</freemarker.version>
-        <dom4j.version>1.6.1</dom4j.version>
-        <zip4j.version>1.3.2</zip4j.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>${commons.lang3.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
-            <version>${commons.collections4.version}</version>
         </dependency>
 
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>${commons.io.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
-            <version>${freemarker.version}</version>
         </dependency>
 
         <dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
-            <version>${dom4j.version}</version>
         </dependency>
 
         <dependency>
             <groupId>net.lingala.zip4j</groupId>
             <artifactId>zip4j</artifactId>
-            <version>${zip4j.version}</version>
         </dependency>
 
         <!-- 添加Junit 依赖 zzf  -->
@@ -67,5 +52,17 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-1.2-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
     </dependencies>
 </project>
