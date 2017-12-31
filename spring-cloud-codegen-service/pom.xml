@@ -37,9 +37,13 @@
 
     <dependencies>
        <dependency>
-            <groupId>com.nepxion</groupId>
-            <artifactId>skeleton-framework</artifactId>
-            <version>${skeleton.version}</version>
+            <groupId>cn.springcloud.codegen</groupId>
+            <artifactId>spring-cloud-codegen-engine</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.springcloud.codegen</groupId>
+            <artifactId>spring-cloud-codegen-adapter</artifactId>
         </dependency>
 
         <dependency>

@@ -10,13 +10,11 @@ package cn.springcloud.codegen.config;
  * @version 1.0
  */
 
+import cn.springcloud.codegen.service.SkeletonServiceImpl;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-
-import cn.springcloud.codegen.service.SkeletonServiceImpl;
-
-import com.nepxion.skeleton.framework.service.SkeletonService;
 
 @Configuration
 @Import({ com.nepxion.skeleton.framework.config.SkeletonWebConfig.class })

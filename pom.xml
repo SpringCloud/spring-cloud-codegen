@@ -10,9 +10,10 @@
     <url>https://github.com/SpringCloud/spring-cloud-codegen</url>
 
     <modules>
+        <module>docs</module>
         <module>spring-cloud-codegen-service</module>
         <module>spring-cloud-codegen-engine</module>
-        <module>docs</module>
+        <module>spring-cloud-codegen-adapter</module>
     </modules>
 
     <properties>
