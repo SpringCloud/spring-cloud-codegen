@@ -10,9 +10,9 @@ package cn.springcloud.codegen.generator.springboot.test;
  * @version 1.0
  */
 
-import com.nepxion.skeleton.engine.constant.SkeletonConstant;
-import com.nepxion.skeleton.engine.generator.SkeletonJavaGenerator;
-import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import cn.springcloud.codegen.engine.constant.SkeletonConstant;
+import cn.springcloud.codegen.engine.generator.SkeletonJavaGenerator;
+import cn.springcloud.codegen.engine.property.SkeletonProperties;
 
 import java.util.HashMap;
 import java.util.Map;
