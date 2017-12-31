@@ -21,7 +21,7 @@ import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
 import cn.springcloud.codegen.engine.transport.SkeletonConfigTransport;
 import cn.springcloud.codegen.engine.transport.SkeletonDataTransport;
-import cn.springcloud.codegen.framework.service.SkeletonService;
+import cn.springcloud.codegen.service.SkeletonService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -57,7 +57,7 @@ public class SkeletonController {
     private String skeletonGeneratePath;
 
     @Autowired
-    private SkeletonService service;
+    private SkeletonService skeletonService;
 
     private SkeletonConfigTransport configTransport;
     private SkeletonDataTransport dataTransport;
@@ -70,7 +70,7 @@ public class SkeletonController {
             public void generate(String generatePath, SkeletonProperties skeletonProperties) throws Exception {
                 String dynamicTemplatePath = generateDynamicTemplatePath(skeletonProperties);
 
-                service.generate(generatePath, dynamicTemplatePath, skeletonReducedTemplatePath, skeletonProperties);
+                skeletonService.generate(generatePath, dynamicTemplatePath, skeletonReducedTemplatePath, skeletonProperties);
             }
         };
     }

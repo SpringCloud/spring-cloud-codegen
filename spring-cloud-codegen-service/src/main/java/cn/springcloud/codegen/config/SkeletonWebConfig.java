@@ -10,11 +10,10 @@ package cn.springcloud.codegen.config;
  * @version 1.0
  */
 
-import cn.springcloud.codegen.framework.service.SkeletonService;
+import cn.springcloud.codegen.service.SkeletonService;
 import cn.springcloud.codegen.service.impl.SkeletonServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -29,7 +28,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-@ComponentScan(basePackages = { "cn.springcloud.codegen.framework" })
 public class SkeletonWebConfig extends WebMvcConfigurerAdapter {
     @Value("${spring.application.name}")
     private String serviceName;
@@ -88,4 +86,8 @@ public class SkeletonWebConfig extends WebMvcConfigurerAdapter {
                 .allowedOrigins("*");
     }
 
+    @Bean
+    public SkeletonService skeletonService() {
+        return new SkeletonServiceImpl();
+    }
 }
