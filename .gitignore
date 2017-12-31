@@ -1,4 +1,5 @@
 # Output Directory
+bin/
 target/
 tmp/
 
@@ -57,6 +58,7 @@ __pycache__/
 .settings/
 .classpath
 .project
+
 
 # IntelliJ, based on http://devnet.jetbrains.net/docs/DOC-1186
 .idea/
