@@ -39,7 +39,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1")
 @Api(tags = { "脚手架接口" })
 public class SkeletonController {
     @Value("${skeleton.prefix.template.path}")
