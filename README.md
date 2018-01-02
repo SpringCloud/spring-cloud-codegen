@@ -12,7 +12,7 @@
 
 # 引擎介绍
 
-访问https://github.com/Nepxion/Skeleton下的介绍
+访问如下链接中的介绍https://github.com/Nepxion/Skeleton
 
 # Spring Cloud代码生成器
 访问如下地址，在线生成脚手架代码，代码持续迭代更新中
