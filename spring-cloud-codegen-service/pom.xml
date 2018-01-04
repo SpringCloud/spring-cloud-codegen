@@ -20,11 +20,17 @@
             <version>1.5.9.RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>cn.springcloud.codegen</groupId>
+            <artifactId>spring-cloud-codegen-framework</artifactId>
+        </dependency>
+
+        <!--
        <dependency>
             <groupId>cn.springcloud.codegen</groupId>
             <artifactId>spring-cloud-codegen-adapter</artifactId>
-           <version>1.0.0</version>
         </dependency>
+        -->
     </dependencies>
 
     <build>
