@@ -12,16 +12,19 @@ package cn.springcloud.codegen.service.impl;
 
 import java.io.IOException;
 
+import cn.springcloud.codegen.common.GitIgnoreGenerator;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
 import cn.springcloud.codegen.service.SkeletonService;
 import freemarker.template.TemplateException;
 
-public class SkeletonServiceImpl implements SkeletonService {
+public class ParentProjectServiceImpl implements SkeletonService {
 
     @Override
     public void generate(String generatePath, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) throws
         SkeletonException, TemplateException, IOException {
-        new ParentProjectServiceImpl().generate(generatePath, prefixTemplatePath, reducedTemplatePath, skeletonProperties);
+        String projectType = null;
+
+        new GitIgnoreGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
     }
 }

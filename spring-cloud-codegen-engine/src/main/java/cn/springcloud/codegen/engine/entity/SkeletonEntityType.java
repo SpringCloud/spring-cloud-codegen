@@ -15,7 +15,8 @@ public enum SkeletonEntityType {
     TOGGLEBUTTON("TOGGLEBUTTON"),
     CHECKBOX("CHECKBOX"),
     RADIO("RADIO"),
-    COMBOBOX("COMBOBOX");
+    COMBOBOX("COMBOBOX"),
+    EDITABLE_COMBOBOX("EDITABLE_COMBOBOX");
 
     private String value;
 

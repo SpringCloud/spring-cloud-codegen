@@ -13,11 +13,12 @@ package cn.springcloud.codegen.engine.generator;
 import java.util.HashMap;
 import java.util.Map;
 
+import cn.springcloud.codegen.engine.constant.SkeletonConstant;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.springcloud.codegen.engine.constant.SkeletonConstant;
+import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.entity.SkeletonFileType;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
@@ -29,16 +30,27 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
     protected String defaultBasePackage;
     protected String defaultOutputPath;
 
+    public SkeletonJavaGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext, skeletonProperties);
+
+        initialize();
+    }
+
     public SkeletonJavaGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, generatorClass, skeletonProperties);
 
-        defaultBasePackage = SkeletonUtil.getBasePackagePath(projectType, skeletonProperties);
-        defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
+        initialize();
     }
 
     public SkeletonJavaGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, baseTemplatePath, SkeletonFileType.JAVA, skeletonProperties);
 
+        initialize();
+    }
+
+    private void initialize() {
+        String generatePath = skeletonContext.getGeneratePath();
+        String projectType = skeletonContext.getProjectType();
         defaultBasePackage = SkeletonUtil.getBasePackagePath(projectType, skeletonProperties);
         defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
     }
@@ -51,17 +63,17 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
         return defaultOutputPath;
     }
 
-    public Map<String, Object> generateDataModel() {
-        Map<String, Object> defaultDataModel = new HashMap<String, Object>();
-        defaultDataModel.put(SkeletonConstant.TITLE, skeletonProperties.getString(SkeletonConstant.TITLE));
-        defaultDataModel.put(SkeletonConstant.DESCRIPTION, skeletonProperties.getString(SkeletonConstant.DESCRIPTION));
-        defaultDataModel.put(SkeletonConstant.COPYRIGHT, skeletonProperties.getString(SkeletonConstant.COPYRIGHT));
-        defaultDataModel.put(SkeletonConstant.COMPANY, skeletonProperties.getString(SkeletonConstant.COMPANY));
-        defaultDataModel.put(SkeletonConstant.AUTHOR, skeletonProperties.getString(SkeletonConstant.AUTHOR));
-        defaultDataModel.put(SkeletonConstant.EMAIL, skeletonProperties.getString(SkeletonConstant.EMAIL));
-        defaultDataModel.put(SkeletonConstant.VERSION, skeletonProperties.getString(SkeletonConstant.VERSION));
+    public Map<String, Object> getDefaultMapModel() {
+        Map<String, Object> defaultMapModel = new HashMap<String, Object>();
+        defaultMapModel.put(SkeletonConstant.TITLE, skeletonProperties.getString(SkeletonConstant.TITLE));
+        defaultMapModel.put(SkeletonConstant.DESCRIPTION, skeletonProperties.getString(SkeletonConstant.DESCRIPTION));
+        defaultMapModel.put(SkeletonConstant.COPYRIGHT, skeletonProperties.getString(SkeletonConstant.COPYRIGHT));
+        defaultMapModel.put(SkeletonConstant.COMPANY, skeletonProperties.getString(SkeletonConstant.COMPANY));
+        defaultMapModel.put(SkeletonConstant.AUTHOR, skeletonProperties.getString(SkeletonConstant.AUTHOR));
+        defaultMapModel.put(SkeletonConstant.EMAIL, skeletonProperties.getString(SkeletonConstant.EMAIL));
+        defaultMapModel.put(SkeletonConstant.VERSION, skeletonProperties.getString(SkeletonConstant.VERSION));
 
-        return defaultDataModel;
+        return defaultMapModel;
     }
 
     @Override

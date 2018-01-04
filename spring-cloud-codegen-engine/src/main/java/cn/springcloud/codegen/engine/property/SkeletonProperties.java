@@ -22,9 +22,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import org.apache.commons.io.IOUtils;
-
 import cn.springcloud.codegen.engine.util.MathsUtil;
+import org.apache.commons.io.IOUtils;
 
 public class SkeletonProperties implements Serializable {
     static {

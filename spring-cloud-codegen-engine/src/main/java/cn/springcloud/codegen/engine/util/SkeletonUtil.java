@@ -10,11 +10,11 @@ package cn.springcloud.codegen.engine.util;
  * @version 1.0
  */
 
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import org.apache.commons.lang3.StringUtils;
-
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
+import org.apache.commons.lang3.StringUtils;
+
+import cn.springcloud.codegen.engine.property.SkeletonProperties;
 
 public class SkeletonUtil {
     public static String getOutputPath(String generatePath, SkeletonProperties skeletonProperties) {
@@ -30,7 +30,7 @@ public class SkeletonUtil {
     }
 
     public static String getBaseDirectoryName(String projectType, SkeletonProperties skeletonProperties) {
-        return skeletonProperties.getString(SkeletonConstant.MODULE_NAME) + (StringUtils.isNotEmpty(projectType) ? "-" + projectType : "");
+        return skeletonProperties.getString(SkeletonConstant.PRODUCT_NAME) + (StringUtils.isNotEmpty(projectType) ? "-" + projectType : "");
     }
 
     public static String getBasePackagePath(SkeletonProperties skeletonProperties) {
@@ -38,9 +38,9 @@ public class SkeletonUtil {
     }
 
     public static String getBasePackagePath(String projectType, SkeletonProperties skeletonProperties) {
-        String moduleName = skeletonProperties.getString(SkeletonConstant.MODULE_NAME);
+        String productName = skeletonProperties.getString(SkeletonConstant.PRODUCT_NAME);
 
-        return skeletonProperties.getString(SkeletonConstant.BASE_PACKAGE) + "." + formatModuleName(moduleName) + (StringUtils.isNotEmpty(projectType) ? "." + projectType : "");
+        return skeletonProperties.getString(SkeletonConstant.BASE_PACKAGE) + "." + formatProductName(productName) + (StringUtils.isNotEmpty(projectType) ? "." + projectType : "");
     }
 
     public static String getCanonicalFileName(String fileName, SkeletonProperties skeletonProperties) {
@@ -90,17 +90,17 @@ public class SkeletonUtil {
         return path;
     }
 
-    public static String formatModuleName(String moduleName) {
+    public static String formatProductName(String productName) {
         StringBuilder sb = new StringBuilder();
 
-        String[] splittedModuleNames = moduleName.split("-");
-        for (String splittedModuleName : splittedModuleNames) {
-            sb.append(splittedModuleName.trim()).append(".");
+        String[] array = productName.split("-");
+        for (String text : array) {
+            sb.append(text.trim()).append(".");
         }
 
-        String formattedModuleName = sb.toString();
+        String name = sb.toString();
 
-        return formattedModuleName.substring(0, formattedModuleName.lastIndexOf("."));
+        return name.substring(0, name.lastIndexOf("."));
     }
 
     public static String getTempGeneratePath() {
