@@ -16,7 +16,7 @@ import java.net.URLEncoder;
 import java.util.List;
 
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
+import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.util.SkeletonUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.dom4j.DocumentException;
@@ -24,8 +24,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cn.springcloud.codegen.engine.entity.SkeletonGroup;
-import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.parser.SkeletonXmlParser;
+import cn.springcloud.codegen.engine.property.SkeletonProperties;
 
 public class SkeletonConfigTransport {
     private static final Logger LOG = LoggerFactory.getLogger(SkeletonConfigTransport.class);

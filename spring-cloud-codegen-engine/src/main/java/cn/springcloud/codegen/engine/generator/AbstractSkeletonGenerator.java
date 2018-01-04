@@ -17,35 +17,31 @@ import java.io.OutputStreamWriter;
 
 import cn.springcloud.codegen.engine.config.SkeletonConfig;
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.entity.SkeletonFileType;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
 import org.apache.commons.io.IOUtils;
 
+import cn.springcloud.codegen.engine.context.SkeletonContext;
+import cn.springcloud.codegen.engine.entity.SkeletonFileType;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
+import cn.springcloud.codegen.engine.property.SkeletonProperties;
 
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 public abstract class AbstractSkeletonGenerator {
-    protected String generatePath;
     protected SkeletonContext skeletonContext;
     protected SkeletonProperties skeletonProperties;
 
-    public AbstractSkeletonGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
-        this.generatePath = generatePath;
-        this.skeletonContext = new SkeletonContext(projectType, prefixTemplatePath, reducedTemplatePath, generatorClass);
+    public AbstractSkeletonGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        this.skeletonContext = skeletonContext;
         this.skeletonProperties = skeletonProperties;
+    }
+
+    public AbstractSkeletonGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
+        this(new SkeletonContext(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, generatorClass), skeletonProperties);
     }
 
     public AbstractSkeletonGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
-        this.generatePath = generatePath;
-        this.skeletonContext = new SkeletonContext(projectType, baseTemplatePath, fileType);
-        this.skeletonProperties = skeletonProperties;
-    }
-
-    public String getGeneratePath() {
-        return generatePath;
+        this(new SkeletonContext(generatePath, projectType, baseTemplatePath, fileType), skeletonProperties);
     }
 
     public SkeletonContext getSkeletonContext() {

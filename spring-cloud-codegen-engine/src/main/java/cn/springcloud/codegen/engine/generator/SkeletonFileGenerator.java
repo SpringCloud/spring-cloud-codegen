@@ -10,11 +10,12 @@ package cn.springcloud.codegen.engine.generator;
  * @version 1.0
  */
 
+import cn.springcloud.codegen.engine.constant.SkeletonConstant;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.springcloud.codegen.engine.constant.SkeletonConstant;
+import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.entity.SkeletonFileType;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
@@ -25,19 +26,32 @@ public abstract class SkeletonFileGenerator extends AbstractSkeletonGenerator {
 
     protected String defaultOutputPath;
 
+    public SkeletonFileGenerator( SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext, skeletonProperties);
+
+        initialize();
+    }
+
     public SkeletonFileGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, generatorClass, skeletonProperties);
 
-        defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
+        initialize();
     }
 
     public SkeletonFileGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, baseTemplatePath, fileType, skeletonProperties);
 
-        if (fileType == SkeletonFileType.JAVA) {
-            throw new SkeletonException("Invalid file type for " + fileType);
-        }
+        initialize();
+    }
 
+    private void initialize() {
+        /*SkeletonFileType fileType = skeletonContext.getFileType();
+        if (fileType != null && fileType == SkeletonFileType.JAVA) {
+            throw new SkeletonException("Invalid file type for " + fileType);
+        }*/
+
+        String generatePath = skeletonContext.getGeneratePath();
+        String projectType = skeletonContext.getProjectType();
         defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
     }
 

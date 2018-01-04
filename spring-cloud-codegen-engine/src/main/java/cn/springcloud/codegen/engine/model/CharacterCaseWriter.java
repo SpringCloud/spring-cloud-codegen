@@ -33,10 +33,12 @@ public class CharacterCaseWriter extends Writer {
         out.write(String.valueOf(cbuf).trim());
     }
 
+    @Override
     public void flush() throws IOException {
         out.flush();
     }
 
+    @Override
     public void close() throws IOException {
         out.close();
     }

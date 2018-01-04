@@ -14,9 +14,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-import org.apache.commons.io.IOUtils;
-
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
+import org.apache.commons.io.IOUtils;
 
 public class StringUtil {
     public static String firstLetterToUpper(String value) {
