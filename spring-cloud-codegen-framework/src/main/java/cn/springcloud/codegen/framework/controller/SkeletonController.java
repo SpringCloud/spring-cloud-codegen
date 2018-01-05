@@ -36,6 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 import cn.springcloud.codegen.engine.entity.SkeletonGroup;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.service.SkeletonService;
+import cn.springcloud.codegen.framework.aop.SkeletonBeanPostProcessor;
 import cn.springcloud.codegen.framework.transport.SkeletonTransport;
 
 @RestController
@@ -43,6 +44,9 @@ import cn.springcloud.codegen.framework.transport.SkeletonTransport;
 public class SkeletonController {
     @Value("${skeleton.default.plugin:}")
     private String skeletonDefaultPlugin;
+
+    @Autowired
+    private SkeletonBeanPostProcessor skeletonBeanPostProcessor;
 
     @Autowired
     private Map<String, SkeletonService> skeletonServiceMap;
@@ -57,11 +61,12 @@ public class SkeletonController {
             throw new SkeletonException("Skeleton service map isn't injected or empty");
         }
 
+        Map<Object, String> skeletonPluginMap = skeletonBeanPostProcessor.getSkeletonPluginMap();
         skeletonTransportMap = new HashMap<String, SkeletonTransport>(skeletonServiceMap.size());
         skeletonPlugins = new ArrayList<String>();
         for (Map.Entry<String, SkeletonService> entry : skeletonServiceMap.entrySet()) {
-            String skeletonPlugin = entry.getKey();
             SkeletonService skeletonService = entry.getValue();
+            String skeletonPlugin = skeletonPluginMap.get(skeletonService);
             SkeletonTransport skeletonTransport = new SkeletonTransport(skeletonPlugin, skeletonService);
             skeletonTransportMap.put(skeletonPlugin, skeletonTransport);
             skeletonPlugins.add(skeletonPlugin);
