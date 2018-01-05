@@ -12,14 +12,14 @@ package cn.springcloud.codegen.engine.transport;
 
 import java.io.File;
 
-import cn.springcloud.codegen.engine.exception.SkeletonException;
-import cn.springcloud.codegen.engine.util.SkeletonUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
 import cn.springcloud.codegen.engine.util.FileUtil;
+import cn.springcloud.codegen.engine.util.SkeletonUtil;
 import cn.springcloud.codegen.engine.util.ZipUtil;
 
 public abstract class SkeletonDataTransport {

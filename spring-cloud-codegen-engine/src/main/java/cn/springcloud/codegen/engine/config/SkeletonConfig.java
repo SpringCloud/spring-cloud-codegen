@@ -12,7 +12,6 @@ package cn.springcloud.codegen.engine.config;
 
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
 import cn.springcloud.codegen.engine.model.CharacterCaseModel;
-
 import freemarker.template.Configuration;
 
 public class SkeletonConfig extends Configuration {

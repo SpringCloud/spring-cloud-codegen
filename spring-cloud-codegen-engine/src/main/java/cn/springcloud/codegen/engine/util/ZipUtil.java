@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import cn.springcloud.codegen.engine.constant.SkeletonConstant;
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 import net.lingala.zip4j.model.FileHeader;
@@ -23,6 +22,8 @@ import net.lingala.zip4j.model.ZipParameters;
 import net.lingala.zip4j.util.Zip4jConstants;
 
 import org.apache.commons.lang3.StringUtils;
+
+import cn.springcloud.codegen.engine.constant.SkeletonConstant;
 
 /**
  * 基于Zip4J开源项目(http://www.lingala.net/zip4j/)制作，支持压缩和解压，支持加解密
