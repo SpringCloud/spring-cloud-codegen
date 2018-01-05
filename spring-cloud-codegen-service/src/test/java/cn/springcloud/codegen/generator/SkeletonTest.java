@@ -13,8 +13,8 @@ package cn.springcloud.codegen.generator;
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
 import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
+import cn.springcloud.codegen.engine.service.SkeletonService;
 import cn.springcloud.codegen.engine.util.SkeletonUtil;
-import cn.springcloud.codegen.framework.service.SkeletonService;
 import cn.springcloud.codegen.service.SkeletonServiceImpl;
 
 public class SkeletonTest {

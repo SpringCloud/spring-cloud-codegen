@@ -15,7 +15,7 @@ import java.io.IOException;
 import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.framework.service.SkeletonService;
+import cn.springcloud.codegen.engine.service.SkeletonService;
 import cn.springcloud.codegen.generator.common.GitIgnoreGenerator;
 import freemarker.template.TemplateException;
 
