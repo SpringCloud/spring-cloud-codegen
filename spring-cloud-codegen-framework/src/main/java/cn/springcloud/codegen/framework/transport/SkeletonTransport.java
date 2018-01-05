@@ -25,9 +25,9 @@ import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.entity.SkeletonGroup;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.engine.service.SkeletonService;
 import cn.springcloud.codegen.engine.transport.SkeletonConfigTransport;
 import cn.springcloud.codegen.engine.transport.SkeletonDataTransport;
+import cn.springcloud.codegen.framework.service.SkeletonService;
 
 public class SkeletonTransport {
     private static final String SKELETON_PREFIX_TEMPLATE_PATH = "skeleton.prefix.template.path";

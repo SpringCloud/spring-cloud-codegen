@@ -17,8 +17,8 @@ import org.springframework.stereotype.Component;
 import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.engine.service.SkeletonService;
 import cn.springcloud.codegen.framework.annotation.SkeletonPlugin;
+import cn.springcloud.codegen.framework.service.SkeletonService;
 import freemarker.template.TemplateException;
 
 @Component

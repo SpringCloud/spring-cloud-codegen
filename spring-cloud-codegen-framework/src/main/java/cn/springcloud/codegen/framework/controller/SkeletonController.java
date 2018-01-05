@@ -35,8 +35,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cn.springcloud.codegen.engine.entity.SkeletonGroup;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
-import cn.springcloud.codegen.engine.service.SkeletonService;
 import cn.springcloud.codegen.framework.aop.SkeletonBeanPostProcessor;
+import cn.springcloud.codegen.framework.service.SkeletonService;
 import cn.springcloud.codegen.framework.transport.SkeletonTransport;
 
 @RestController
