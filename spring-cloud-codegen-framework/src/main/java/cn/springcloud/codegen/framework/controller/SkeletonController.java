@@ -14,116 +14,116 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.entity.SkeletonGroup;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.engine.transport.SkeletonConfigTransport;
-import cn.springcloud.codegen.engine.transport.SkeletonDataTransport;
-import cn.springcloud.codegen.framework.service.SkeletonService;
+import cn.springcloud.codegen.engine.service.SkeletonService;
+import cn.springcloud.codegen.framework.transport.SkeletonTransport;
 
 @RestController
 @Api(tags = { "脚手架接口" })
 public class SkeletonController {
-    @Value("${skeleton.prefix.template.path}")
-    private String skeletonPrefixTemplatePath;
-
-    @Value("${skeleton.reduced.template.path}")
-    private String skeletonReducedTemplatePath;
-
-    @Value("${skeleton.dynamic.template.path.key}")
-    private String skeletonDynamicTemplatePathKey;
-
-    @Value("${skeleton.generate.file.name}")
-    private String skeletonGenerateFileName;
-
-    @Value("${skeleton.generate.path}")
-    private String skeletonGeneratePath;
+    @Value("${skeleton.default.plugin}")
+    private String skeletonDefaultPlugin;
 
     @Autowired
-    private SkeletonService service;
+    private Map<String, SkeletonService> skeletonServiceMap;
 
-    private SkeletonConfigTransport configTransport;
-    private SkeletonDataTransport dataTransport;
+    private Map<String, SkeletonTransport> skeletonTransportMap;
+
+    private List<String> skeletonPlugins;
 
     @PostConstruct
     private void initialize() {
-        configTransport = new SkeletonConfigTransport();
-        dataTransport = new SkeletonDataTransport() {
-            @Override
-            public void generate(String generatePath, SkeletonProperties skeletonProperties) throws Exception {
-                String dynamicTemplatePath = generateDynamicTemplatePath(skeletonProperties);
+        if (MapUtils.isEmpty(skeletonServiceMap)) {
+            throw new SkeletonException("Skeleton service map isn't injected or empty");
+        }
 
-                service.generate(new SkeletonContext(generatePath, dynamicTemplatePath, skeletonReducedTemplatePath), skeletonProperties);
-            }
-        };
+        skeletonTransportMap = new HashMap<String, SkeletonTransport>(skeletonServiceMap.size());
+        skeletonPlugins = new ArrayList<String>();
+        for (Map.Entry<String, SkeletonService> entry : skeletonServiceMap.entrySet()) {
+            String skeletonName = entry.getKey();
+            SkeletonService skeletonService = entry.getValue();
+            SkeletonTransport skeletonTransport = new SkeletonTransport(skeletonName, skeletonService);
+            skeletonTransportMap.put(skeletonName, skeletonTransport);
+            skeletonPlugins.add(skeletonName);
+        }
+    }
+
+    @RequestMapping(value = "/getPlugins", method = RequestMethod.GET)
+    @ApiOperation(value = "获取脚手架插件列表接口", notes = "获取脚手架插件列表接口", response = List.class, httpMethod = "GET")
+    public List<String> getPlugins() {
+        return skeletonPlugins;
     }
 
     @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
-    @ApiOperation(value = "获取元数据接口", notes = "获取根据配置文件进行界面驱动的元数据接口", response = List.class, httpMethod = "GET")
+    @ApiOperation(value = "获取默认元数据接口", notes = "获取默认界面驱动的元数据接口", response = List.class, httpMethod = "GET")
     public List<SkeletonGroup> getMetaData() {
-        return configTransport.getMetaData();
+        return getSkeletonTransport(skeletonDefaultPlugin).getMetaData();
+    }
+
+    @RequestMapping(value = "/getMetaData/{skeletonName}", method = RequestMethod.GET)
+    @ApiOperation(value = "获取元数据接口", notes = "根据脚手架名称，获取对应的界面驱动的元数据接口", response = List.class, httpMethod = "GET")
+    public List<SkeletonGroup> getMetaData(@PathVariable(value = "skeletonName") @ApiParam(value = "脚手架名称", required = true) String skeletonName) {
+        return getSkeletonTransport(skeletonName).getMetaData();
     }
 
     @RequestMapping(value = "/downloadBytes", method = RequestMethod.POST)
-    @ApiOperation(value = "下载脚手架", notes = "下载脚手架Zip文件的接口，返回Zip文件的byte数组类型", response = byte[].class, httpMethod = "POST")
-    public byte[] downloadBytes(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/skeleton-data.properties的内容", required = true) String config) {
-        SkeletonProperties properties = configTransport.getProperties(config);
+    @ApiOperation(value = "下载默认脚手架", notes = "下载默认脚手架Zip文件的接口，返回Zip文件的byte数组类型", response = byte[].class, httpMethod = "POST")
+    public byte[] downloadBytes(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
+        return getSkeletonTransport(skeletonDefaultPlugin).downloadBytes(config);
+    }
 
-        return dataTransport.download(skeletonGeneratePath, skeletonGenerateFileName, properties);
+    @RequestMapping(value = "/downloadBytes/{skeletonName}", method = RequestMethod.POST)
+    @ApiOperation(value = "下载脚手架", notes = "根据脚手架名称，下载脚手架Zip文件的接口，返回Zip文件的byte数组类型", response = byte[].class, httpMethod = "POST")
+    public byte[] downloadBytes(@PathVariable(value = "skeletonName") @ApiParam(value = "脚手架名称", required = true) String skeletonName, @RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
+        return getSkeletonTransport(skeletonName).downloadBytes(config);
     }
 
     @RequestMapping(value = "/downloadResponse", method = RequestMethod.POST)
-    @ApiOperation(value = "下载脚手架", notes = "下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
-    public ResponseEntity<Resource> downloadResponse(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/skeleton-data.properties的内容", required = true) String config) {
-        SkeletonProperties properties = configTransport.getProperties(config);
-
-        String canonicalFileName = configTransport.getCanonicalFileName(skeletonGenerateFileName, properties);
-        byte[] bytes = dataTransport.download(skeletonGeneratePath, skeletonGenerateFileName, properties);
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
-        headers.add("Pragma", "no-cache");
-        headers.add("Expires", "0");
-        headers.add("charset", "utf-8");
-
-        headers.add("Content-Disposition", "attachment;filename=\"" + canonicalFileName + "\"");
-
-        InputStream inputStream = new ByteArrayInputStream(bytes);
-        Resource resource = new InputStreamResource(inputStream);
-
-        return ResponseEntity.ok().headers(headers).contentType(MediaType.parseMediaType("application/x-msdownload")).body(resource);
+    @ApiOperation(value = "下载默认脚手架", notes = "下载默认脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
+    public ResponseEntity<Resource> downloadResponse(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
+        return getSkeletonTransport(skeletonDefaultPlugin).downloadResponse(config);
     }
 
-    private String generateDynamicTemplatePath(SkeletonProperties properties) {
-        if (StringUtils.isEmpty(skeletonDynamicTemplatePathKey)) {
-            return skeletonPrefixTemplatePath;
+    @RequestMapping(value = "/downloadResponse/{skeletonName}", method = RequestMethod.POST)
+    @ApiOperation(value = "下载脚手架", notes = "根据脚手架名称，下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
+    public ResponseEntity<Resource> downloadResponse(@PathVariable(value = "skeletonName") @ApiParam(value = "脚手架名称", required = true) String skeletonName, @RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
+        return getSkeletonTransport(skeletonName).downloadResponse(config);
+    }
+
+    private SkeletonTransport getSkeletonTransport(String skeletonName) {
+        if (MapUtils.isEmpty(skeletonTransportMap)) {
+            throw new SkeletonException("Skeleton service map isn't injected or empty");
         }
 
-        String skeletonDynamicTemplatePathValue = properties.getString(skeletonDynamicTemplatePathKey);
-        if (StringUtils.isEmpty(skeletonDynamicTemplatePathValue)) {
-            throw new SkeletonException(skeletonDynamicTemplatePathKey + " is null or empty");
+        SkeletonTransport skeletonTransport = skeletonTransportMap.get(skeletonName);
+        if (skeletonTransport == null) {
+            if (StringUtils.isEmpty(skeletonName)) {
+                throw new SkeletonException("No default configuration existed for skeleton");
+            } else {
+                throw new SkeletonException("No configuration existed for skeleton name=" + skeletonName);
+            }
         }
 
-        return skeletonPrefixTemplatePath + "/" + skeletonDynamicTemplatePathValue;
+        return skeletonTransport;
     }
 }
