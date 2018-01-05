@@ -1,20 +1,19 @@
 package cn.springcloud.codegen.generator.springcloud;
 
-import cn.springcloud.codegen.engine.generator.SkeletonFileGenerator;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-
 import java.util.HashMap;
 import java.util.Map;
 
+import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
+
 /**
  * Created with IntelliJ IDEA.
- *
  * @author: zzf
  * @date: 2017/12/23
  * @time: 8:30
  * @description : do some thing
  */
-public class EurekaPomXmlGenerator extends SkeletonFileGenerator{
+public class EurekaPomXmlGenerator extends SkeletonFileGenerator {
 
     public EurekaPomXmlGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, EurekaPomXmlGenerator.class, skeletonProperties);

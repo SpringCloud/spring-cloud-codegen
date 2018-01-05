@@ -10,12 +10,13 @@ package cn.springcloud.codegen.generator;
  * @version 1.0
  */
 
-import cn.springcloud.codegen.engine.constant.SkeletonConstant;
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.engine.util.SkeletonUtil;
-import cn.springcloud.codegen.framework.service.SkeletonService;
 import cn.springcloud.codegen.service.SkeletonServiceImpl;
+
+import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.util.SkeletonUtil;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 
 public class SkeletonTest {
     public static void main(String[] args) throws Exception {
@@ -32,7 +33,7 @@ public class SkeletonTest {
         // 3. 如果把模板文件和Generator类放在一起，则prefixTemplatePath和reducedTemplatePath同时为null即可
 
         // 模板文件所在的前置路径
-        String prefixTemplatePath = "templates/springboot";
+        String prefixTemplatePath = "templates/springboot"; 
         // String prefixTemplatePath = null;
 
         // 模板路径缩减

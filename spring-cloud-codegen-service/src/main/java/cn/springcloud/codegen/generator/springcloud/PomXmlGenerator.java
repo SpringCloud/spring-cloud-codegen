@@ -10,11 +10,11 @@ package cn.springcloud.codegen.generator.springcloud;
  * @version 1.0
  */
 
-import cn.springcloud.codegen.engine.generator.SkeletonFileGenerator;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class PomXmlGenerator extends SkeletonFileGenerator {
     /**
@@ -37,9 +37,12 @@ public class PomXmlGenerator extends SkeletonFileGenerator {
      * @param fileType 创建的文件类型
      * @param skeletonProperties 全局配置文件对象
      */
-    /*public PomXmlGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, baseTemplatePath, fileType, skeletonProperties);
-    }*/
+    /*
+     * public PomXmlGenerator(String generatePath, String projectType, String
+     * baseTemplatePath, SkeletonFileType fileType, SkeletonProperties
+     * skeletonProperties) { super(generatePath, projectType, baseTemplatePath,
+     * fileType, skeletonProperties); }
+     */
 
     /**
      * 设置文件名

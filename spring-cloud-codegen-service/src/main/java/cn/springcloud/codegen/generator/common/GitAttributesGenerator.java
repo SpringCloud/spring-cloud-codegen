@@ -10,9 +10,9 @@ package cn.springcloud.codegen.generator.common;
  * @version 1.0
  */
 
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.generator.SkeletonFileGenerator;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
+import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class GitAttributesGenerator extends SkeletonFileGenerator {
     public GitAttributesGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {

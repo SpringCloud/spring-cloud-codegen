@@ -10,12 +10,12 @@ package cn.springcloud.codegen.generator.springboot.resources;
  * @version 1.0
  */
 
-import cn.springcloud.codegen.engine.constant.SkeletonConstant ;
-import cn.springcloud.codegen.engine.generator.SkeletonFileGenerator;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class ResGenerator extends SkeletonFileGenerator {
     /**

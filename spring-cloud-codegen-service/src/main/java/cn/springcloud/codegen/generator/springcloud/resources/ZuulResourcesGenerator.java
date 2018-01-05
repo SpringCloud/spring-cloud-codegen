@@ -1,14 +1,13 @@
 package cn.springcloud.codegen.generator.springcloud.resources;
 
-import cn.springcloud.codegen.engine.generator.SkeletonFileGenerator;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-
 import java.util.HashMap;
 import java.util.Map;
 
+import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
+
 /**
  * Created with IntelliJ IDEA.
- *
  * @author: zzf
  * @date: 2017/12/23
  * @time: 0:02

@@ -12,11 +12,13 @@ package cn.springcloud.codegen.service;
 
 import java.io.IOException;
 
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.exception.SkeletonException;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.framework.service.SkeletonService;
 import cn.springcloud.codegen.generator.common.GitIgnoreGenerator;
+
+import com.nepxion.skeleton.engine.context.SkeletonContext;
+import com.nepxion.skeleton.engine.exception.SkeletonException;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.framework.service.SkeletonService;
+
 import freemarker.template.TemplateException;
 
 public class ParentProjectServiceImpl implements SkeletonService {

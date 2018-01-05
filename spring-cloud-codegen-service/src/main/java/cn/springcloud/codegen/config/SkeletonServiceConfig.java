@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import({ cn.springcloud.codegen.framework.config.SkeletonWebConfig.class })
+@Import({ com.nepxion.skeleton.framework.config.SkeletonWebConfig.class })
 @ComponentScan(basePackages = { "cn.springcloud.codegen" })
 public class SkeletonServiceConfig {
 

@@ -10,12 +10,12 @@ package cn.springcloud.codegen.generator.springboot.test;
  * @version 1.0
  */
 
-import cn.springcloud.codegen.engine.constant.SkeletonConstant;
-import cn.springcloud.codegen.engine.generator.SkeletonJavaGenerator;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.generator.SkeletonJavaGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class TestClassGenerator extends SkeletonJavaGenerator {
     /**
@@ -37,17 +37,19 @@ public class TestClassGenerator extends SkeletonJavaGenerator {
      * @param baseTemplatePath 模板文件的顶级路径径
      * @param skeletonProperties 全局配置文件对象
      */
-    /*public JavaClassGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, baseTemplatePath, skeletonProperties);
-    }*/
+    /*
+     * public JavaClassGenerator(String generatePath, String projectType, String
+     * baseTemplatePath, SkeletonProperties skeletonProperties) {
+     * super(generatePath, projectType, baseTemplatePath, skeletonProperties); }
+     */
 
     /**
      * 设置Java类的包路径，如果没特殊处理，则按照默认顶级包路径来处理，不需要Override该方法
      */
-    /*@Override
-    protected String getPackage() {
-        return super.getPackage() + "." + "abc";
-    }*/
+    /*
+     * @Override protected String getPackage() { return super.getPackage() + "."
+     * + "abc"; }
+     */
 
     /**
      * 设置Java类名
@@ -68,10 +70,10 @@ public class TestClassGenerator extends SkeletonJavaGenerator {
     /**
      * 设置Java类的输出路径，如果没特殊处理，则按照默认输出路径来处理，不需要Override该方法
      */
-    /*@Override
-    protected String getOutputPath() {
-        return super.getOutputPath() + "/" + "xyz";
-    }*/
+    /*
+     * @Override protected String getOutputPath() { return super.getOutputPath()
+     * + "/" + "xyz"; }
+     */
 
     /**
      * 设置Java类到main目录下，还是在test目录下
