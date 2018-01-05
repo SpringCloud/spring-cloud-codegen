@@ -10,25 +10,13 @@ package cn.springcloud.codegen.config;
  * @version 1.0
  */
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import cn.springcloud.codegen.engine.service.SkeletonService;
-import cn.springcloud.codegen.service.SkeletonServiceImpl;
-
 @Configuration
 @Import({ cn.springcloud.codegen.framework.config.SkeletonWebConfig.class })
+@ComponentScan(basePackages = { "cn.springcloud.codegen" })
 public class SkeletonServiceConfig {
-    @Bean
-    public Map<String, SkeletonService> skeletonServiceMap() {
-        Map<String, SkeletonService> map = new LinkedHashMap<String, SkeletonService>();
-        // 非插件模式下，key为""
-        map.put("", new SkeletonServiceImpl());
 
-        return map;
-    }
 }
