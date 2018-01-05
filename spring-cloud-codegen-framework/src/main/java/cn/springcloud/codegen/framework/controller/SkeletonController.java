@@ -41,7 +41,7 @@ import cn.springcloud.codegen.framework.transport.SkeletonTransport;
 @RestController
 @Api(tags = { "脚手架接口" })
 public class SkeletonController {
-    @Value("${skeleton.default.plugin}")
+    @Value("${skeleton.default.plugin:}")
     private String skeletonDefaultPlugin;
 
     @Autowired

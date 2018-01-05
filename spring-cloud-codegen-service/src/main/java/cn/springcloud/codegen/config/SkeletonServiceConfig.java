@@ -26,7 +26,7 @@ public class SkeletonServiceConfig {
     @Bean
     public Map<String, SkeletonService> skeletonServiceMap() {
         Map<String, SkeletonService> map = new LinkedHashMap<String, SkeletonService>();
-        map.put(null, new SkeletonServiceImpl());
+        map.put("", new SkeletonServiceImpl());
 
         return map;
     }
