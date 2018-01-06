@@ -15,45 +15,71 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
 
-import cn.springcloud.codegen.engine.constant.SkeletonConstant;
-import cn.springcloud.codegen.engine.exception.SkeletonException;
+import cn.springcloud.codegen.engine.entity.SkeletonGroup;
+import cn.springcloud.codegen.engine.property.SkeletonProperties;
 import cn.springcloud.codegen.engine.util.SkeletonUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.dom4j.DocumentException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.springcloud.codegen.engine.entity.SkeletonGroup;
+import cn.springcloud.codegen.engine.constant.SkeletonConstant;
+import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.parser.SkeletonXmlParser;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
 
 public class SkeletonConfigTransport {
     private static final Logger LOG = LoggerFactory.getLogger(SkeletonConfigTransport.class);
 
+    private static final String SKELETON_CONTEXT_FILE = "config/skeleton-context.properties";
     private static final String SKELETON_DATA_FILE = "config/skeleton-data.properties";
     private static final String SKELETON_DESCRIPTION_FILE = "config/skeleton-description.xml";
 
+    private SkeletonProperties skeletonContextProperties;
     private SkeletonProperties skeletonDataProperties;
     private SkeletonXmlParser skeletonXmlParser;
 
-    public SkeletonConfigTransport() {
+    public SkeletonConfigTransport(String skeletonPlugin) {
+        String plugin = "";
+        if (StringUtils.isNotEmpty(skeletonPlugin)) {
+            plugin = skeletonPlugin + "/";
+        }
+
         try {
-            skeletonDataProperties = new SkeletonProperties(SKELETON_DATA_FILE, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
+            skeletonContextProperties = new SkeletonProperties(plugin + SKELETON_CONTEXT_FILE, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
         } catch (IOException e) {
-            LOG.error("Parse properties failed", e);
+            LOG.error("Parse data properties failed", e);
+            e.printStackTrace();
+        }
+
+        try {
+            skeletonDataProperties = new SkeletonProperties(plugin + SKELETON_DATA_FILE, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
+        } catch (IOException e) {
+            LOG.error("Parse data properties failed", e);
             e.printStackTrace();
         }
 
         try {
             skeletonXmlParser = new SkeletonXmlParser(skeletonDataProperties);
-            skeletonXmlParser.parsePath(SKELETON_DESCRIPTION_FILE, SkeletonConstant.ENCODING_UTF_8);
+            skeletonXmlParser.parsePath(plugin + SKELETON_DESCRIPTION_FILE, SkeletonConstant.ENCODING_UTF_8);
         } catch (IOException e) {
-            LOG.error("Parse xml failed", e);
+            LOG.error("Parse description xml failed", e);
             e.printStackTrace();
         } catch (DocumentException e) {
-            LOG.error("Parse xml failed", e);
+            LOG.error("Parse description xml failed", e);
             e.printStackTrace();
         }
+    }
+
+    public SkeletonProperties getContextProperties() {
+        return skeletonContextProperties;
+    }
+
+    public SkeletonProperties getDataProperties() {
+        return skeletonDataProperties;
+    }
+
+    public SkeletonXmlParser getXmlParser() {
+        return skeletonXmlParser;
     }
 
     public SkeletonProperties getProperties(String config) {

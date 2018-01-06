@@ -17,6 +17,7 @@
         <module>spring-cloud-codegen-engine</module>
         <module>spring-cloud-codegen-adapter</module>
         <module>spring-cloud-codegen-framework</module>
+        <module>codegen-plugin-springboot</module>
     </modules>
 
     <properties>

@@ -14,15 +14,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
+import cn.springcloud.codegen.engine.entity.SkeletonFileType;
+import cn.springcloud.codegen.engine.property.SkeletonProperties;
+import cn.springcloud.codegen.engine.util.SkeletonUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.entity.SkeletonFileType;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.engine.util.SkeletonUtil;
 
 public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
     private static final Logger LOG = LoggerFactory.getLogger(SkeletonJavaGenerator.class);

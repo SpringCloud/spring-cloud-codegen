@@ -12,10 +12,9 @@ package cn.springcloud.codegen.engine.context;
 
 import cn.springcloud.codegen.engine.config.SkeletonConfig;
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
+import cn.springcloud.codegen.engine.entity.SkeletonFileType;
 import cn.springcloud.codegen.engine.util.SkeletonUtil;
 import org.apache.commons.lang3.StringUtils;
-
-import cn.springcloud.codegen.engine.entity.SkeletonFileType;
 
 public class SkeletonContext {
     private String generatePath;
