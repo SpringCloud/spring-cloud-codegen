@@ -21,7 +21,7 @@
 
         <dependency>
             <groupId>cn.springcloud.codegen</groupId>
-            <artifactId>codegen-plugin-eureka</artifactId>
+            <artifactId>codegen-component-eureka</artifactId>
         </dependency>
     </dependencies>
 
