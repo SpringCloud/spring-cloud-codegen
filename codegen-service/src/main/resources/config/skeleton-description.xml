@@ -67,10 +67,10 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>moduleName</key>
-            <label>工程模块名</label>
-            <description>moduleName</description>
-            <note>【必改项】首字母必须小写，中间只允许出现“-”</note>
+            <key>productName</key>
+            <label>产品名</label>
+            <description>productName</description>
+            <note>首字母必须小写，中间只允许出现“-”。例如产品名=payment-ccb，表示用Spring Cloud为CCB(中国建设银行)搭建一套Payment(支付)系统</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -79,9 +79,9 @@
         </entity>
         <entity>
             <key>basePackage</key>
-            <label>上层包路径</label>
+            <label>包路径</label>
             <description>basePackage</description>
-            <note>【必改项】该路径会作为所有Java代码的上层路径。moduleName、basePackage和projectType三者组合起来解析出相关目录和结构规则，例如moduleName=payment-ccb，basePackage=com.nepxion，projectType=server，那么工程名为payment-ccb-server，类路径为com.nepxion.payment.ccb.server
+            <note>将作为所有Java代码的上层路径。产品名、包路径和工程类型三者组合起来解析出相关目录和结构规则，例如产品名=payment-ccb，包路径=cn.springcloud，工程类型=server，那么工程名为payment-ccb-server，类路径为cn.springcloud.payment.ccb.server
             </note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
