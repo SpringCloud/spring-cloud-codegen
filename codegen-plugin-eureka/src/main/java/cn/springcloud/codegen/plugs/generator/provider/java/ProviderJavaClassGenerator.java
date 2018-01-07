@@ -1,4 +1,4 @@
-package cn.springcloud.codegen.plugs.generator.consumer.java;
+package cn.springcloud.codegen.plugs.generator.provider.java;
 
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
 import cn.springcloud.codegen.engine.context.SkeletonContext;
@@ -13,19 +13,20 @@ import java.util.Map;
  * Created with IntelliJ IDEA.
  *
  * @author: zzf
- * @date: 2018/1/6
- * @time: 16:52
- * @description : 服务消费者
+ * @date: 2018/1/7
+ * @time: 1:18
+ * @description : do some thing
  */
-public class ConsumerJavaGenerator extends SkeletonJavaGenerator {
+public class ProviderJavaClassGenerator extends SkeletonJavaGenerator{
 
-    public ConsumerJavaGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
-        super(skeletonContext.clone("consumer", EurekaJavaClassGenerator.class), skeletonProperties);
+
+    public ProviderJavaClassGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext.clone("provider", ProviderJavaClassGenerator.class), skeletonProperties);
     }
 
     @Override
     protected String getClassName() {
-        return "ConsumerApplication";
+        return "ProviderApplication";
     }
 
     @Override
@@ -35,14 +36,13 @@ public class ConsumerJavaGenerator extends SkeletonJavaGenerator {
 
     @Override
     protected String getTemplateName() {
-        return "Consumer.java.template";
+        return "ProviderApplication.java.template";
     }
 
     @Override
     protected Object getDataModel() {
         Map<String, Object> dataModel = new HashMap<String, Object>();
         dataModel.put(SkeletonConstant.PACKAGE, getPackage());
-        dataModel.put("clientHystrixEnabled", skeletonProperties.getString("clientHystrixEnabled"));
 
         return dataModel;
     }
