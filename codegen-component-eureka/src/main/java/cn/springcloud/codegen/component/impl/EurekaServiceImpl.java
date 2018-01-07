@@ -1,5 +1,7 @@
 package cn.springcloud.codegen.component.impl;
 
+import java.io.IOException;
+
 import cn.springcloud.codegen.component.generator.common.LogbackXmlGenerator;
 import cn.springcloud.codegen.component.generator.eureka.EurekaPomXmlGenerator;
 import cn.springcloud.codegen.component.generator.eureka.java.EurekaJavaClassGenerator;
@@ -7,11 +9,8 @@ import cn.springcloud.codegen.component.generator.eureka.resources.EurekaResourc
 import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.framework.annotation.SkeletonPlugin;
 import cn.springcloud.codegen.framework.service.SkeletonService;
 import freemarker.template.TemplateException;
-
-import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
