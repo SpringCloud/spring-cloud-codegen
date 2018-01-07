@@ -7,6 +7,7 @@ import cn.springcloud.codegen.component.generator.eureka.resources.EurekaResourc
 import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
+import cn.springcloud.codegen.framework.annotation.SkeletonPlugin;
 import cn.springcloud.codegen.framework.service.SkeletonService;
 import freemarker.template.TemplateException;
 
