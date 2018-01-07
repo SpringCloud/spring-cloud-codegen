@@ -107,7 +107,7 @@ public class SkeletonController {
         return getSkeletonTransport(skeletonPlugin).downloadBytes(config);
     }
 
-    @RequestMapping(value = "/downloadResponse", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/v1/downloadResponse", method = RequestMethod.POST)
     @ApiOperation(value = "下载默认脚手架", notes = "下载默认脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
     public ResponseEntity<Resource> downloadResponse(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
         return getSkeletonTransport(skeletonDefaultPlugin).downloadResponse(config);
