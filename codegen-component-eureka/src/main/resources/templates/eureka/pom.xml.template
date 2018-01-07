@@ -6,17 +6,35 @@
     <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>${pomGroupId}</groupId>
-        <artifactId>${parentPomArtifactId}</artifactId>
-        <version>${pomVersion}</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>${springBootVersion}</version>
     </parent>
 
+    <properties>
+        <spring.cloud.version>${springCloudVersion}</spring.cloud.version>
+        <java.version>${javaVersion}</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${r"$"}{spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka-server</artifactId>
-        </dependency>
-    </dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-eureka-server</artifactId>
+            </dependency>
+        </dependencies>
 
     <build>
         <finalName>${r"$"}{project.artifactId}-${r"$"}{project.version}</finalName>
@@ -52,26 +70,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <configuration>
-                    <imageName>${r"$"}{ImageName}</imageName>
-                    <baseImage>${javaImageVersion}</baseImage>
-                    <entryPoint>["java", "-jar", "/${r"$"}{project.build.finalName}.jar"]</entryPoint>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${r"$"}{project.build.directory}</directory>
-                            <include>${r"$"}{project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                    <exposes>
-                        <expose>${r"$"}{ExposePort}</expose>
-                    </exposes>
-                </configuration>
             </plugin>
         </plugins>
         <resources>

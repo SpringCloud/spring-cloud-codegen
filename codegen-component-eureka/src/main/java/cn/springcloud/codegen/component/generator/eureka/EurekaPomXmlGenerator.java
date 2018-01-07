@@ -41,7 +41,11 @@ public class EurekaPomXmlGenerator extends SkeletonFileGenerator{
     @Override
     protected Object getDataModel() {
         Map<String, Object> dataModel = new HashMap<String, Object>();
-        dataModel.put("parentPomArtifactId", skeletonProperties.getString("pomArtifactId"));
+
+        dataModel.put("springBootVersion", skeletonProperties.getString("springBootVersion"));
+        dataModel.put("springCloudVersion", skeletonProperties.getString("springCloudVersion"));
+        dataModel.put("javaVersion", skeletonProperties.getString("javaVersion"));
+
         dataModel.put("pomGroupId", skeletonProperties.getString("pomGroupId"));
         dataModel.put("pomArtifactId", skeletonProperties.getString("pomArtifactId") + "-" + getSkeletonContext().getProjectType());
         dataModel.put("pomName", skeletonProperties.getString("pomName") + " " + StringUtil.firstLetterToUpper(getSkeletonContext().getProjectType()));
