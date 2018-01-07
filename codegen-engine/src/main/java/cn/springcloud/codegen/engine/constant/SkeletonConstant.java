@@ -47,7 +47,7 @@ public class SkeletonConstant {
     public static final String EMAIL = "email";
     public static final String VERSION = "version";
 
-    public static final String PRODUCT_NAME = "productName";
+    public static final String PROJECT_NAME = "projectName";
     public static final String PACKAGE = "package";
     public static final String BASE_PACKAGE = "basePackage";
     public static final String CLASS_NAME = "className";
