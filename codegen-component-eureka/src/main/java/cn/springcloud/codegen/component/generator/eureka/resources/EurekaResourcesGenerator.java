@@ -40,9 +40,11 @@ public class EurekaResourcesGenerator extends SkeletonFileGenerator{
     @Override
     protected Object getDataModel() {
         Map<String, Object> dataModel = new HashMap<String, Object>();
-        dataModel.put("serviceName", skeletonProperties.getString("serviceName") + "-" + getSkeletonContext().getProjectType());
-        dataModel.put("port", skeletonProperties.getString("eurekaPort"));
-        dataModel.put("eurekaUrl", skeletonProperties.getString("registryUrl"));
+        dataModel.put("serviceName", skeletonProperties.getString("productName") + "-" + getSkeletonContext().getProjectType());
+
+
+        /*dataModel.put("port", skeletonProperties.getString("eurekaPort"));
+        dataModel.put("eurekaUrl", skeletonProperties.getString("registryUrl"));*/
 
         return dataModel;
     }
