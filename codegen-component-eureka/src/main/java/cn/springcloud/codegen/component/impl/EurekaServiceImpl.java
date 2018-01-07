@@ -27,12 +27,12 @@ public class EurekaServiceImpl implements SkeletonService {
         // 创建Java类文件到main/java 目录下
         new EurekaJavaClassGenerator(skeletonContext, skeletonProperties).generate();
 
-        // 创建文件到main/resources目录下面
-        new EurekaResourcesGenerator(skeletonContext, skeletonProperties).generate();
-        new LogbackXmlGenerator(skeletonContext, skeletonProperties, "eureka").generate();
-
-        // 生产pom 文件到跟目录下
-        new EurekaPomXmlGenerator(skeletonContext, skeletonProperties).generate();
+//        // 创建文件到main/resources目录下面
+//        new EurekaResourcesGenerator(skeletonContext, skeletonProperties).generate();
+//        new LogbackXmlGenerator(skeletonContext, skeletonProperties, "eureka").generate();
+//
+//        // 生产pom 文件到跟目录下
+//        new EurekaPomXmlGenerator(skeletonContext, skeletonProperties).generate();
 
     }
 }
