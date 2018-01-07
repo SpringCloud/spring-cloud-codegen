@@ -12,11 +12,12 @@
     <url>https://github.com/SpringCloud/spring-cloud-codegen</url>
 
     <modules>
-        <module>docs</module>
-        <module>spring-cloud-codegen-service</module>
-        <module>spring-cloud-codegen-engine</module>
-        <module>spring-cloud-codegen-adapter</module>
-        <module>spring-cloud-codegen-framework</module>
+        <module>codegen-docs</module>
+        <module>codegen-service</module>
+        <module>codegen-engine</module>
+        <module>codegen-adapter</module>
+        <module>codegen-framework</module>
+        <module>codegen-plugin-eureka</module>
     </modules>
 
     <properties>
@@ -31,6 +32,7 @@
         <dom4j.version>1.6.1</dom4j.version>
         <zip4j.version>1.3.2</zip4j.version>
         <slf4j-api.version>1.7.25</slf4j-api.version>
+        <spring-boot-starter-web.version>1.5.9.RELEASE</spring-boot-starter-web.version>
 
     </properties>
 
@@ -38,28 +40,39 @@
         <dependencies>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>spring-cloud-codegen-engine</artifactId>
+                <artifactId>codegen-engine</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>spring-cloud-codegen-adapter</artifactId>
+                <artifactId>codegen-adapter</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>spring-cloud-codegen-service</artifactId>
+                <artifactId>codegen-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>spring-cloud-codegen-framework</artifactId>
+                <artifactId>codegen-framework</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>codegen-plugin-eureka</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot-starter-web.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.lmax</groupId>
