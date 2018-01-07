@@ -38,7 +38,7 @@ public class SmartCodeGenTest {
         // String prefixTemplatePath = null;
 
         // 模板路径缩减
-        String reducedTemplatePath = "cn/springcloud/codegen/component/";
+        String reducedTemplatePath = "cn/springcloud/codegen/component/generator/";
         // String reducedTemplatePath = null;
 
         // 全局上下文对象
