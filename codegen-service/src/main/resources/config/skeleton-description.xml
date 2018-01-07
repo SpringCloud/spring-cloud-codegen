@@ -67,10 +67,10 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>productName</key>
-            <label>产品名</label>
-            <description>productName</description>
-            <note>首字母必须小写，中间只允许出现“-”。例如产品名=payment-ccb，表示用Spring Cloud为CCB(中国建设银行)搭建一套Payment(支付)系统</note>
+            <key>projectName</key>
+            <label>工程名</label>
+            <description>projectName</description>
+            <note>首字母必须小写，中间只允许出现“-”。例如工程名=payment-ccb，表示用Spring Cloud为CCB(中国建设银行)搭建一套Payment(支付)系统的工程</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -81,7 +81,7 @@
             <key>basePackage</key>
             <label>包路径</label>
             <description>basePackage</description>
-            <note>将作为所有Java代码的上层路径。产品名、包路径和工程类型三者组合起来解析出相关目录和结构规则，例如产品名=payment-ccb，包路径=cn.springcloud，工程类型=server，那么工程名为payment-ccb-server，类路径为cn.springcloud.payment.ccb.server
+            <note>将作为所有Java代码的上层路径。工程名、包路径和子工程类型三者组合起来解析出相关目录和结构规则，例如工程名=payment-ccb，包路径=cn.springcloud，子工程类型=server，那么子工程名为payment-ccb-server，里面类路径为cn.springcloud.payment.ccb.server
             </note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
