@@ -27,7 +27,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-public class SkeletonWebConfig extends WebMvcConfigurerAdapter {
+public class SkeletonFrameworkConfig extends WebMvcConfigurerAdapter {
     @Value("${spring.application.name}")
     private String serviceName;
 
