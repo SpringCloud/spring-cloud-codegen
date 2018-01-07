@@ -17,12 +17,13 @@ import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 
-import cn.springcloud.codegen.engine.util.IOUtil;
 import org.apache.commons.io.IOUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.xml.sax.InputSource;
+
+import cn.springcloud.codegen.engine.util.IOUtil;
 
 public abstract class Dom4JParser {
     public void parsePath(String path, String encoding) throws IOException, DocumentException {

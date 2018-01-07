@@ -14,19 +14,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import cn.springcloud.codegen.engine.entity.SkeletonEntity;
-import cn.springcloud.codegen.engine.entity.SkeletonEntityType;
-import cn.springcloud.codegen.engine.entity.SkeletonGroupType;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.engine.xml.Dom4JParser;
 import org.apache.commons.lang3.StringUtils;
 import org.dom4j.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
+import cn.springcloud.codegen.engine.entity.SkeletonEntity;
+import cn.springcloud.codegen.engine.entity.SkeletonEntityType;
 import cn.springcloud.codegen.engine.entity.SkeletonGroup;
 import cn.springcloud.codegen.engine.entity.SkeletonGroupLayoutType;
+import cn.springcloud.codegen.engine.entity.SkeletonGroupType;
+import cn.springcloud.codegen.engine.property.SkeletonProperties;
+import cn.springcloud.codegen.engine.xml.Dom4JParser;
 
 public class SkeletonXmlParser extends Dom4JParser {
     private static final Logger LOG = LoggerFactory.getLogger(SkeletonXmlParser.class);

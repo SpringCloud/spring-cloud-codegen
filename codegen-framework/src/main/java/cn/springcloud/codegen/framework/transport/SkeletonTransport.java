@@ -14,12 +14,6 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
 
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.entity.SkeletonGroup;
-import cn.springcloud.codegen.engine.exception.SkeletonException;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.engine.transport.SkeletonConfigTransport;
-import cn.springcloud.codegen.engine.transport.SkeletonDataTransport;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -27,7 +21,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-
+import cn.springcloud.codegen.engine.context.SkeletonContext;
+import cn.springcloud.codegen.engine.entity.SkeletonGroup;
+import cn.springcloud.codegen.engine.exception.SkeletonException;
+import cn.springcloud.codegen.engine.property.SkeletonProperties;
+import cn.springcloud.codegen.engine.transport.SkeletonConfigTransport;
+import cn.springcloud.codegen.engine.transport.SkeletonDataTransport;
 import cn.springcloud.codegen.framework.service.SkeletonService;
 
 public class SkeletonTransport {

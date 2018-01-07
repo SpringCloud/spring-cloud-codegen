@@ -10,11 +10,11 @@ package cn.springcloud.codegen.engine.util;
  * @version 1.0
  */
 
-import cn.springcloud.codegen.engine.exception.SkeletonException;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
 import org.apache.commons.lang3.StringUtils;
 
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
+import cn.springcloud.codegen.engine.exception.SkeletonException;
+import cn.springcloud.codegen.engine.property.SkeletonProperties;
 
 public class SkeletonUtil {
     public static String getOutputPath(String generatePath, SkeletonProperties skeletonProperties) {

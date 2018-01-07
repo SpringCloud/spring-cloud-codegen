@@ -14,9 +14,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-import cn.springcloud.codegen.engine.util.IOUtil;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+
+import cn.springcloud.codegen.engine.util.IOUtil;
 
 public class SkeletonContent {
     private String content;
