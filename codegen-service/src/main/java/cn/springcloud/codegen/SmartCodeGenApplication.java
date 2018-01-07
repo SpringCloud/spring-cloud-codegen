@@ -15,7 +15,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-@Import({ cn.springcloud.codegen.framework.config.SkeletonWebConfig.class })
+@Import({ cn.springcloud.codegen.framework.config.SkeletonFrameworkConfig.class })
 public class SmartCodeGenApplication {
     public static void main(String[] args) {
         new SpringApplicationBuilder(SmartCodeGenApplication.class).web(true).run(args);

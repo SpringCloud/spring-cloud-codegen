@@ -15,7 +15,6 @@
         <module>codegen-docs</module>
         <module>codegen-service</module>
         <module>codegen-engine</module>
-        <module>codegen-adapter</module>
         <module>codegen-framework</module>
         <module>codegen-component-eureka</module>
     </modules>
