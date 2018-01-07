@@ -1,10 +1,11 @@
-package cn.springcloud.codegen.plugs;
+package cn.springcloud.codegen.service;
 
 import java.io.IOException;
 
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
 import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
+import cn.springcloud.codegen.engine.util.SkeletonUtil;
 import cn.springcloud.codegen.framework.service.SkeletonService;
 import cn.springcloud.codegen.service.SmartCodeGenServiceImpl;
 import freemarker.template.TemplateException;
@@ -23,8 +24,8 @@ public class SmartCodeGenTest {
         // ********** 构建全局上下文对象 **********
         // 创建文件的输出的路径
         // 放在操作系统的临时目录下
-        //        String generatePath = SkeletonUtil.getTempGeneratePath();
-        String generatePath = "D:\\spring-cloud-codegene-test";
+        String generatePath = SkeletonUtil.getTempGeneratePath();
+        //String generatePath = "D:\\spring-cloud-codegene-test";
 
         // 如何理解prefixTemplatePath和reducedTemplatePath含义？
         // FreeMarker规定，模板文件必须放在classpath下，即以com/...开头的路径为其classpath
