@@ -47,7 +47,7 @@ public class SkeletonTest {
         // ********** 构建全局配置类对象 **********
         // 描述规则的配置文件所在的路径
         // 配置文件含中文，stringEncoding必须为GBK，readerEncoding必须为UTF-8，文本文件编码必须为ANSI
-        String propertiesPath = "config/skeleton-data.properties";
+        String propertiesPath = "src/test/resources/config/skeleton-data.properties";
 
         // 全局配置类对象
         SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
