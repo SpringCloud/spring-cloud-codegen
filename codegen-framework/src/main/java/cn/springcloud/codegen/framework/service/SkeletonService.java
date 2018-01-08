@@ -10,13 +10,12 @@ package cn.springcloud.codegen.framework.service;
  * @version 1.0
  */
 
+import java.io.IOException;
 
 import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
 import freemarker.template.TemplateException;
-
-import java.io.IOException;
 
 public interface SkeletonService {
     void generate(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException;

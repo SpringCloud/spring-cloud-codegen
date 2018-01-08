@@ -13,11 +13,11 @@ package cn.springcloud.codegen.framework.aop;
 import java.util.HashMap;
 import java.util.Map;
 
-import cn.springcloud.codegen.engine.exception.SkeletonException;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
+import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.framework.annotation.SkeletonPlugin;
 
 @Component("skeletonBeanPostProcessor")

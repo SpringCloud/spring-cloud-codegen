@@ -21,7 +21,7 @@
 
         <dependency>
             <groupId>cn.springcloud.codegen</groupId>
-            <artifactId>codegen-plugin-eureka</artifactId>
+            <artifactId>codegen-component-eureka</artifactId>
         </dependency>
     </dependencies>
 
@@ -31,7 +31,7 @@
                 <!-- Build an executable JAR -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
+                <!-- <version>3.0.2</version> -->
                 <configuration>
                     <archive>
                         <manifest>

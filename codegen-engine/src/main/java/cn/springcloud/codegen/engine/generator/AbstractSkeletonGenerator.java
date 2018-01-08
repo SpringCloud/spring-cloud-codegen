@@ -15,15 +15,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
-import cn.springcloud.codegen.engine.exception.SkeletonException;
 import org.apache.commons.io.IOUtils;
 
 import cn.springcloud.codegen.engine.config.SkeletonConfig;
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
 import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.entity.SkeletonFileType;
+import cn.springcloud.codegen.engine.exception.SkeletonException;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
-
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 

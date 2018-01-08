@@ -10,27 +10,34 @@ package cn.springcloud.codegen.framework.controller;
  * @version 1.0
  */
 
-import cn.springcloud.codegen.engine.entity.SkeletonGroup;
-import cn.springcloud.codegen.engine.exception.SkeletonException;
-import cn.springcloud.codegen.framework.aop.SkeletonBeanPostProcessor;
-import cn.springcloud.codegen.framework.service.SkeletonService;
-import cn.springcloud.codegen.framework.transport.SkeletonTransport;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.PostConstruct;
+
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import cn.springcloud.codegen.engine.entity.SkeletonGroup;
+import cn.springcloud.codegen.engine.exception.SkeletonException;
+import cn.springcloud.codegen.framework.aop.SkeletonBeanPostProcessor;
+import cn.springcloud.codegen.framework.service.SkeletonService;
+import cn.springcloud.codegen.framework.transport.SkeletonTransport;
 
 @RestController
 @Api(tags = { "脚手架接口" })
@@ -51,10 +58,14 @@ public class SkeletonController {
     @PostConstruct
     private void initialize() {
         if (MapUtils.isEmpty(skeletonServiceMap)) {
-            throw new SkeletonException("Skeleton service map isn't injected or empty");
+            throw new SkeletonException("Not found any skeleton plugins");
         }
 
         Map<Object, String> skeletonPluginMap = skeletonBeanPostProcessor.getSkeletonPluginMap();
+        if (MapUtils.isEmpty(skeletonPluginMap)) {
+            throw new SkeletonException("Not found any skeleton plugins, check @SkeletonPlugin in SkeletonService implementation");
+        }
+
         skeletonTransportMap = new HashMap<String, SkeletonTransport>(skeletonServiceMap.size());
         skeletonPlugins = new ArrayList<String>();
         for (Map.Entry<String, SkeletonService> entry : skeletonServiceMap.entrySet()) {
@@ -110,15 +121,15 @@ public class SkeletonController {
 
     private SkeletonTransport getSkeletonTransport(String skeletonPlugin) {
         if (MapUtils.isEmpty(skeletonTransportMap)) {
-            throw new SkeletonException("Skeleton service map isn't injected or empty");
+            throw new SkeletonException("Not found any skeleton plugins");
         }
 
         SkeletonTransport skeletonTransport = skeletonTransportMap.get(skeletonPlugin);
         if (skeletonTransport == null) {
             if (StringUtils.isEmpty(skeletonPlugin)) {
-                throw new SkeletonException("No configuration existed for default skeleton plugin");
+                throw new SkeletonException("Not found default skeleton plugin");
             } else {
-                throw new SkeletonException("No configuration existed for skeleton plugin=" + skeletonPlugin);
+                throw new SkeletonException("Not found skeleton plugin=" + skeletonPlugin);
             }
         }
 
