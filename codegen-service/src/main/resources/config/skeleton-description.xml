@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <skeleton>
-    <!--头部下拉列表配置-->
+    <!-- 头部下拉列表配置 -->
     <group>
-        <key>title-type</key>
+        <key>titleType</key>
         <label>标题栏信息</label>
         <description></description>
         <type>COMBOBOX_GROUP</type>
@@ -30,7 +30,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>springboot-version</key>
+            <key>springBootVersion</key>
             <label></label>
             <description></description>
             <type>COMBOBOX</type>
@@ -104,7 +104,7 @@
 
     <!-- 是否Docker化 -->
     <group>
-        <key>docker-template</key>
+        <key>dockerTemplate</key>
         <label>Docker模板</label>
         <description></description>
         <type>RADIO_GROUP</type>
@@ -178,7 +178,7 @@
 
     <!-- Spring Cloud独立部署组件 -->
     <group>
-        <key>sc-alone</key>
+        <key>scAlone</key>
         <label>Spring Cloud</label>
         <description></description>
         <type>RADIO_GROUP</type>
@@ -195,7 +195,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>service-provider</key>
+            <key>serviceProvider</key>
             <label>服务提供者</label>
             <description></description>
             <type>RADIO</type>
@@ -206,7 +206,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>service-consumer</key>
+            <key>serviceConsumer</key>
             <label>服务消费者</label>
             <description></description>
             <type>RADIO</type>
@@ -218,15 +218,15 @@
         </entity>
     </group>
 
-    <!-- web基础框架 -->
+    <!-- Web基础框架 -->
     <group>
-        <key>basic-framework</key>
+        <key>basicFramework</key>
         <label>基础框架</label>
         <description>基础框架-1</description>
         <type>CHECKBOX_GROUP</type>
         <layout>HORIZONTAL</layout>
         <entity>
-            <key>spring-mvc</key>
+            <key>springMVC</key>
             <label>Spring MVC</label>
             <description>Spring MVC</description>
             <type>CHECKBOX</type>
@@ -236,7 +236,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>Mybatis</key>
+            <key>mybatis</key>
             <label>Mybatis</label>
             <description>Mybatis</description>
             <type>CHECKBOX</type>
@@ -249,13 +249,13 @@
 
     <!-- Spring Cloud独立部署单选组件 -->
     <group>
-        <key>sc-alone-radio</key>
+        <key>scAloneRadio</key>
         <label>独立组件</label>
         <description></description>
         <type>RADIO_GROUP</type>
         <layout>HORIZONTAL</layout>
         <entity>
-            <key>eureka-server</key>
+            <key>eurekaServer</key>
             <label>Eureka Server</label>
             <description></description>
             <type>RADIO</type>
@@ -266,7 +266,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>zuul-server</key>
+            <key>zuulServer</key>
             <label>Zuul Server</label>
             <description></description>
             <type>RADIO</type>
@@ -277,7 +277,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>sc-gateway</key>
+            <key>scGateway</key>
             <label>SC Gateway</label>
             <description></description>
             <type>RADIO</type>
@@ -288,7 +288,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>config-server</key>
+            <key>configServer</key>
             <label>Config Server</label>
             <description></description>
             <type>RADIO</type>
@@ -299,7 +299,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>zipkin-server</key>
+            <key>zipkinServer</key>
             <label>Zipkin Server</label>
             <description></description>
             <type>RADIO</type>
@@ -313,7 +313,7 @@
 
     <!-- Spring Cloud可组合多选组件 -->
     <group>
-        <key>sc-group-checkBox</key>
+        <key>scGroupCheckBox</key>
         <label>可组合组件</label>
         <description>Spring Cloud组件</description>
         <type>CHECKBOX_GROUP</type>
