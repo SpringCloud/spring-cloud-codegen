@@ -38,7 +38,7 @@ public class ConfigResourcesGenerator extends SkeletonFileGenerator  {
         /**
          * git 用户名和密码应该不需要， 只要给生成properties 节点注释掉就可以
          */
-        dataModel.put("serviceName", skeletonProperties.getString("productName") + "-" + getSkeletonContext().getProjectType());
+        dataModel.put("serviceName", skeletonProperties.getString("projectName") + "-" + getSkeletonContext().getProjectType());
         return dataModel;
     }
 }
