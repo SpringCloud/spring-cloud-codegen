@@ -17,6 +17,7 @@
         <module>codegen-engine</module>
         <module>codegen-framework</module>
         <module>codegen-component-eureka</module>
+        <module>codegen-component-zuul</module>
     </modules>
 
     <properties>
@@ -64,6 +65,12 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>codegen-component-eureka</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>codegen-component-zuul</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

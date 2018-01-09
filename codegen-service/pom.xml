@@ -23,6 +23,10 @@
             <groupId>cn.springcloud.codegen</groupId>
             <artifactId>codegen-component-eureka</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.springcloud.codegen</groupId>
+            <artifactId>codegen-component-zuul</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
