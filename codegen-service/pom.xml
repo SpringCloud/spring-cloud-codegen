@@ -7,7 +7,7 @@
     <packaging>jar</packaging>
 
     <parent>
-        <artifactId>spring-cloud-codegen</artifactId>
+        <artifactId>codegen</artifactId>
         <groupId>cn.springcloud.codegen</groupId>
         <version>1.0.0</version>
         <relativePath>..</relativePath>
