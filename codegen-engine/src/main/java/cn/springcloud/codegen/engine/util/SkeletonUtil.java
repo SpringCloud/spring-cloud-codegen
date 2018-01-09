@@ -30,7 +30,7 @@ public class SkeletonUtil {
     }
 
     public static String getBaseDirectoryName(String projectType, SkeletonProperties skeletonProperties) {
-        return skeletonProperties.getString(SkeletonConstant.PRODUCT_NAME) + (StringUtils.isNotEmpty(projectType) ? "-" + projectType : "");
+        return skeletonProperties.getString(SkeletonConstant.PROJECT_NAME) + (StringUtils.isNotEmpty(projectType) ? "-" + projectType : "");
     }
 
     public static String getBasePackagePath(SkeletonProperties skeletonProperties) {
@@ -38,9 +38,9 @@ public class SkeletonUtil {
     }
 
     public static String getBasePackagePath(String projectType, SkeletonProperties skeletonProperties) {
-        String productName = skeletonProperties.getString(SkeletonConstant.PRODUCT_NAME);
+        String projectName = skeletonProperties.getString(SkeletonConstant.PROJECT_NAME);
 
-        return skeletonProperties.getString(SkeletonConstant.BASE_PACKAGE) + "." + formatProductName(productName) + (StringUtils.isNotEmpty(projectType) ? "." + projectType : "");
+        return skeletonProperties.getString(SkeletonConstant.BASE_PACKAGE) + "." + formatProjectName(projectName) + (StringUtils.isNotEmpty(projectType) ? "." + projectType : "");
     }
 
     public static String getCanonicalFileName(String fileName, SkeletonProperties skeletonProperties) {
@@ -90,10 +90,10 @@ public class SkeletonUtil {
         return path;
     }
 
-    public static String formatProductName(String productName) {
+    public static String formatProjectName(String projectName) {
         StringBuilder sb = new StringBuilder();
 
-        String[] array = productName.split("-");
+        String[] array = projectName.split("-");
         for (String text : array) {
             sb.append(text.trim()).append(".");
         }

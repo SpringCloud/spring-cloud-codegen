@@ -42,16 +42,16 @@ public class EurekaPomXmlGenerator extends SkeletonFileGenerator{
     protected Object getDataModel() {
         Map<String, Object> dataModel = new HashMap<String, Object>();
 
-        dataModel.put("springBootVersion", skeletonProperties.getString("springBootVersion"));
-        dataModel.put("springCloudVersion", skeletonProperties.getString("springCloudVersion"));
+        dataModel.put("springBootVersion", skeletonProperties.getString("springboot-version"));
+//        dataModel.put("springCloudVersion", skeletonProperties.getString("springCloudVersion"));
         dataModel.put("javaVersion", skeletonProperties.getString("javaVersion"));
 
         dataModel.put("pomGroupId", skeletonProperties.getString("pomGroupId"));
         dataModel.put("pomArtifactId", skeletonProperties.getString("pomArtifactId") + "-" + getSkeletonContext().getProjectType());
-        dataModel.put("pomName", skeletonProperties.getString("pomName") + " " + StringUtil.firstLetterToUpper(getSkeletonContext().getProjectType()));
-        dataModel.put("pomVersion", skeletonProperties.getString("pomVersion"));
+        dataModel.put("pomName", skeletonProperties.getString("pomArtifactId") + " " + StringUtil.firstLetterToUpper(getSkeletonContext().getProjectType()));
+//        dataModel.put("pomVersion", skeletonProperties.getString("pomVersion"));
 
-        dataModel.put("javaImageVersion", skeletonProperties.getString("javaImageVersion"));
+//        dataModel.put("javaImageVersion", skeletonProperties.getString("javaImageVersion"));
         dataModel.put("mainClass", SkeletonUtil.getBasePackagePath(getSkeletonContext().getProjectType(), skeletonProperties) + "." + StringUtil.firstLetterToUpper(getSkeletonContext().getProjectType()) + "Application");
         return dataModel;
     }
