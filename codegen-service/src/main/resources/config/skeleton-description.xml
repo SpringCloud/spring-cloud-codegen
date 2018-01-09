@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <skeleton>
-    <!-- 头部下拉列表配置 -->
+    <!--头部下拉列表配置-->
     <group>
-        <key>titleType</key>
+        <key>title-type</key>
         <label>标题栏信息</label>
         <description></description>
         <type>COMBOBOX_GROUP</type>
@@ -30,7 +30,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>springBootVersion</key>
+            <key>springboot-version</key>
             <label></label>
             <description></description>
             <type>COMBOBOX</type>
@@ -41,7 +41,6 @@
             <editable>true</editable>
         </entity>
     </group>
-
     <!-- 工程基本配置 -->
     <group>
         <key>basic</key>
@@ -68,10 +67,10 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>projectName</key>
-            <label>工程名</label>
-            <description>projectName</description>
-            <note>首字母必须小写，中间只允许出现“-”。例如工程名=payment-ccb，表示用Spring Cloud为CCB(中国建设银行)搭建一套Payment(支付)系统的工程</note>
+            <key>moduleName</key>
+            <label>工程模块名</label>
+            <description>moduleName</description>
+            <note>【必改项】首字母必须小写，中间只允许出现“-”</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -80,9 +79,9 @@
         </entity>
         <entity>
             <key>basePackage</key>
-            <label>包路径</label>
+            <label>上层包路径</label>
             <description>basePackage</description>
-            <note>将作为所有Java代码的上层路径。工程名、包路径和子工程类型三者组合起来解析出相关目录和结构规则，例如工程名=payment-ccb，包路径=cn.springcloud，子工程类型=server，那么子工程名为payment-ccb-server，里面类路径为cn.springcloud.payment.ccb.server
+            <note>【必改项】该路径会作为所有Java代码的上层路径。moduleName、basePackage和projectType三者组合起来解析出相关目录和结构规则，例如moduleName=payment-ccb，basePackage=com.nepxion，projectType=server，那么工程名为payment-ccb-server，类路径为com.nepxion.payment.ccb.server
             </note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
@@ -105,7 +104,7 @@
 
     <!-- 是否Docker化 -->
     <group>
-        <key>dockerTemplate</key>
+        <key>docker-template</key>
         <label>Docker模板</label>
         <description></description>
         <type>RADIO_GROUP</type>
@@ -179,7 +178,7 @@
 
     <!-- Spring Cloud独立部署组件 -->
     <group>
-        <key>scAlone</key>
+        <key>sc-alone</key>
         <label>Spring Cloud</label>
         <description></description>
         <type>RADIO_GROUP</type>
@@ -196,7 +195,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>serviceProvider</key>
+            <key>service-provider</key>
             <label>服务提供者</label>
             <description></description>
             <type>RADIO</type>
@@ -207,7 +206,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>serviceConsumer</key>
+            <key>service-consumer</key>
             <label>服务消费者</label>
             <description></description>
             <type>RADIO</type>
@@ -219,15 +218,15 @@
         </entity>
     </group>
 
-    <!-- Web基础框架 -->
+    <!-- web基础框架 -->
     <group>
-        <key>basicFramework</key>
+        <key>basic-framework</key>
         <label>基础框架</label>
         <description>基础框架-1</description>
         <type>CHECKBOX_GROUP</type>
         <layout>HORIZONTAL</layout>
         <entity>
-            <key>springMVC</key>
+            <key>spring-mvc</key>
             <label>Spring MVC</label>
             <description>Spring MVC</description>
             <type>CHECKBOX</type>
@@ -237,7 +236,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>mybatis</key>
+            <key>Mybatis</key>
             <label>Mybatis</label>
             <description>Mybatis</description>
             <type>CHECKBOX</type>
@@ -250,13 +249,13 @@
 
     <!-- Spring Cloud独立部署单选组件 -->
     <group>
-        <key>scAloneType</key>
+        <key>sc-alone-radio</key>
         <label>独立组件</label>
         <description></description>
         <type>RADIO_GROUP</type>
         <layout>HORIZONTAL</layout>
         <entity>
-            <key>eurekaServer</key>
+            <key>eureka-server</key>
             <label>Eureka Server</label>
             <description></description>
             <type>RADIO</type>
@@ -267,7 +266,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>zuulServer</key>
+            <key>zuul-server</key>
             <label>Zuul Server</label>
             <description></description>
             <type>RADIO</type>
@@ -278,7 +277,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>scGateway</key>
+            <key>sc-gateway</key>
             <label>SC Gateway</label>
             <description></description>
             <type>RADIO</type>
@@ -289,7 +288,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>configServer</key>
+            <key>config-server</key>
             <label>Config Server</label>
             <description></description>
             <type>RADIO</type>
@@ -300,7 +299,7 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>zipkinServer</key>
+            <key>zipkin-server</key>
             <label>Zipkin Server</label>
             <description></description>
             <type>RADIO</type>
@@ -314,7 +313,7 @@
 
     <!-- Spring Cloud可组合多选组件 -->
     <group>
-        <key>scGroupType</key>
+        <key>sc-group-checkBox</key>
         <label>可组合组件</label>
         <description>Spring Cloud组件</description>
         <type>CHECKBOX_GROUP</type>
