@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <groupId>cn.springcloud.codegen</groupId>
-    <artifactId>spring-cloud-codegen</artifactId>
-    <name>spring-cloud-codegen</name>
+    <artifactId>codegen</artifactId>
+    <name>codegen</name>
     <version>1.0.0</version>
 
     <packaging>pom</packaging>
