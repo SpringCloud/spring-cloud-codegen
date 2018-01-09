@@ -28,15 +28,19 @@ import freemarker.template.TemplateException;
 @Component
 @SkeletonPlugin
 public class SmartCodeGenServiceImpl implements SkeletonService {
+    private SkeletonService eurekaService = new EurekaServiceImpl();
+    private SkeletonService zuulService = new ZuulServiceImpl();
+    private SkeletonService configService = new ConfigServiceImpl();
+
     @Override
     public void generate(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
-        String scAlone = skeletonProperties.getString("sc-alone-radio");
-        if (StringUtils.equals(scAlone, "eureka-server")) {
-            new EurekaServiceImpl().generate(skeletonContext, skeletonProperties);
-        } else if (StringUtils.equals(scAlone, "zuul-server")) {
-            new ZuulServiceImpl().generate(skeletonContext, skeletonProperties);
-        } else if (StringUtils.equals(scAlone, "config-server")) {
-            new ConfigServiceImpl().generate(skeletonContext, skeletonProperties);
+        String scAlone = skeletonProperties.getString("scAloneType");
+        if (StringUtils.equals(scAlone, "eurekaServer")) {
+            eurekaService.generate(skeletonContext, skeletonProperties);
+        } else if (StringUtils.equals(scAlone, "zuulServer")) {
+            zuulService.generate(skeletonContext, skeletonProperties);
+        } else if (StringUtils.equals(scAlone, "configServer")) {
+            configService.generate(skeletonContext, skeletonProperties);
         }
     }
 }
