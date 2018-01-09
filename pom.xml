@@ -18,6 +18,7 @@
         <module>codegen-framework</module>
         <module>codegen-component-eureka</module>
         <module>codegen-component-zuul</module>
+        <module>codegen-component-config</module>
     </modules>
 
     <properties>

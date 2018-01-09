@@ -51,7 +51,7 @@ public class ZuulCodeGenTest {
         // **************************************
 
         // 输出脚手架文件
-        SkeletonService skeletonService = new ZuulCodeGenServiceImpl();
-        skeletonService.generate(skeletonContext, skeletonProperties);
+       /* SkeletonService skeletonService = new ZuulCodeGenServiceImpl();
+        skeletonService.generate(skeletonContext, skeletonProperties);*/
     }
 }
