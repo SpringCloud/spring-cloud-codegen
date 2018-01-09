@@ -34,7 +34,7 @@ public class ConfigResourcesGenerator extends SkeletonFileGenerator  {
     @Override
     protected Object getDataModel() {
         Map<String, Object> dataModel = new HashMap<String, Object>();
-        dataModel.put("gitUrl", skeletonProperties.getString("gitUrl"));
+        // dataModel.put("gitUrl", skeletonProperties.getString("gitUrl"));
         /**
          * git 用户名和密码应该不需要， 只要给生成properties 节点注释掉就可以
          */
