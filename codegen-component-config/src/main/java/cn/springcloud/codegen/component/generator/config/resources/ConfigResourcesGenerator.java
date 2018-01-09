@@ -1,5 +1,6 @@
 package cn.springcloud.codegen.component.generator.config.resources;
 
+import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.generator.SkeletonFileGenerator;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
 
@@ -16,8 +17,8 @@ import java.util.Map;
  */
 public class ConfigResourcesGenerator extends SkeletonFileGenerator  {
 
-    public ConfigResourcesGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, generatorClass, skeletonProperties);
+    public ConfigResourcesGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext.clone("config", ConfigResourcesGenerator.class), skeletonProperties);
     }
 
     @Override

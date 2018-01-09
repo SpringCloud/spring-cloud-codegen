@@ -1,6 +1,7 @@
 package cn.springcloud.codegen.component.generator.config.java;
 
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
+import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.generator.SkeletonJavaGenerator;
 import cn.springcloud.codegen.engine.property.SkeletonProperties;
 
@@ -17,8 +18,8 @@ import java.util.Map;
  */
 public class ConfigJavaClassGenerator extends SkeletonJavaGenerator{
 
-    public ConfigJavaClassGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, ConfigJavaClassGenerator.class, skeletonProperties);
+    public ConfigJavaClassGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext.clone("config", ConfigJavaClassGenerator.class), skeletonProperties);
     }
 
     @Override
