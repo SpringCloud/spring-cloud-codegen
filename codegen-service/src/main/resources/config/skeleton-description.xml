@@ -41,6 +41,7 @@
             <editable>true</editable>
         </entity>
     </group>
+
     <!-- 工程基本配置 -->
     <group>
         <key>basic</key>
@@ -249,7 +250,7 @@
 
     <!-- Spring Cloud独立部署单选组件 -->
     <group>
-        <key>scAloneRadio</key>
+        <key>scAloneType</key>
         <label>独立组件</label>
         <description></description>
         <type>RADIO_GROUP</type>
@@ -313,7 +314,7 @@
 
     <!-- Spring Cloud可组合多选组件 -->
     <group>
-        <key>scGroupCheckBox</key>
+        <key>scGroupType</key>
         <label>可组合组件</label>
         <description>Spring Cloud组件</description>
         <type>CHECKBOX_GROUP</type>
