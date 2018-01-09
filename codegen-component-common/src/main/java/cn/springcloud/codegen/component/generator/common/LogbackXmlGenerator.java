@@ -10,6 +10,7 @@ package cn.springcloud.codegen.component.generator.common;
  * @version 1.0
  */
 
+import cn.springcloud.codegen.component.generator.constant.CommonConstant;
 import cn.springcloud.codegen.engine.constant.SkeletonConstant;
 import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.generator.SkeletonFileGenerator;
@@ -20,7 +21,7 @@ import java.util.Map;
 
 public class LogbackXmlGenerator extends SkeletonFileGenerator {
     public LogbackXmlGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties, String projectType) {
-        super(skeletonContext.clone(projectType, LogbackXmlGenerator.class), skeletonProperties);
+        super(skeletonContext.clone(projectType, CommonConstant.PREFIX_TEMPLATE_PATH, CommonConstant.REDUCED_TEMPLATE_PATH, LogbackXmlGenerator.class), skeletonProperties);
     }
 
     @Override

@@ -1,8 +1,5 @@
 package cn.springcloud.codegen.component.impl;
 
-import cn.springcloud.codegen.component.generator.common.GitIgnoreGenerator;
-import cn.springcloud.codegen.component.generator.common.GitAttributesGenerator;
-import cn.springcloud.codegen.component.generator.common.LogbackXmlGenerator;
 import cn.springcloud.codegen.component.generator.zuul.ZuulPomXmlGenerator;
 import cn.springcloud.codegen.component.generator.zuul.java.ZuulJavaClassGenerator;
 import cn.springcloud.codegen.component.generator.zuul.resources.ZuulResourcesGenerator;
@@ -27,11 +24,12 @@ public class ZuulServiceImpl implements SkeletonService {
 
         // 创建文件到main/resources目录下面
         new ZuulResourcesGenerator(skeletonContext, skeletonProperties).generate();
-        new LogbackXmlGenerator(skeletonContext, skeletonProperties, "zuul").generate();
 
-        // 生产pom 文件到跟目录下
+        // 生成pom 文件到根目录下
         new ZuulPomXmlGenerator(skeletonContext, skeletonProperties).generate();
-        new GitIgnoreGenerator(skeletonContext, skeletonProperties, "zuul").generate();
-        new GitAttributesGenerator(skeletonContext, skeletonProperties, "zuul").generate();
+
+        //生成公共配置文件到根目录下
+        SkeletonService service = new CommonServiceImpl("zuul");
+        service.generate(skeletonContext, skeletonProperties);
     }
 }

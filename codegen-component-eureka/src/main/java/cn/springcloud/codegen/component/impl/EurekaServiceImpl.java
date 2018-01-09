@@ -2,7 +2,7 @@ package cn.springcloud.codegen.component.impl;
 
 import java.io.IOException;
 
-import cn.springcloud.codegen.component.generator.common.LogbackXmlGenerator;
+
 import cn.springcloud.codegen.component.generator.eureka.EurekaPomXmlGenerator;
 import cn.springcloud.codegen.component.generator.eureka.java.EurekaJavaClassGenerator;
 import cn.springcloud.codegen.component.generator.eureka.resources.EurekaResourcesGenerator;
@@ -29,10 +29,13 @@ public class EurekaServiceImpl implements SkeletonService {
 
         // 创建文件到main/resources目录下面
         new EurekaResourcesGenerator(skeletonContext, skeletonProperties).generate();
-        new LogbackXmlGenerator(skeletonContext, skeletonProperties, "eureka").generate();
+//        new LogbackXmlGenerator(skeletonContext, skeletonProperties, "eureka").generate();
 
         // 生产pom 文件到跟目录下
         new EurekaPomXmlGenerator(skeletonContext, skeletonProperties).generate();
 
+        //生成公共配置文件到根目录下
+        SkeletonService service = new CommonServiceImpl("eureka");
+        service.generate(skeletonContext, skeletonProperties);
     }
 }

@@ -1,6 +1,5 @@
 package cn.springcloud.codegen.component.impl;
 
-import cn.springcloud.codegen.component.generator.common.LogbackXmlGenerator;
 import cn.springcloud.codegen.component.generator.config.ConfigPomXmlGenerator;
 import cn.springcloud.codegen.component.generator.config.java.ConfigJavaClassGenerator;
 import cn.springcloud.codegen.component.generator.config.resources.ConfigResourcesGenerator;
@@ -29,9 +28,13 @@ public class ConfigServiceImpl implements SkeletonService {
 
         // 创建文件到main/resources目录下面
         new ConfigResourcesGenerator(skeletonContext, skeletonProperties).generate();
-        new LogbackXmlGenerator(skeletonContext, skeletonProperties, "eureka").generate();
+//        new LogbackXmlGenerator(skeletonContext, skeletonProperties, "eureka").generate();
 
         // 生产pom 文件到跟目录下
         new ConfigPomXmlGenerator(skeletonContext, skeletonProperties).generate();
+
+        //生成公共配置文件到根目录下
+        SkeletonService service = new CommonServiceImpl("config");
+        service.generate(skeletonContext, skeletonProperties);
     }
 }

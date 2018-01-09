@@ -94,6 +94,10 @@ public class SkeletonContext {
         return new SkeletonContext(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, generatorClass);
     }
 
+    public SkeletonContext clone(String projectType, String prefixTemplatePath, String reducedTemplatePath, Class<?> generatorClass) {
+        return new SkeletonContext(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, generatorClass);
+    }
+
     public SkeletonContext clone(String projectType, SkeletonFileType fileType) {
         return new SkeletonContext(generatePath, projectType, baseTemplatePath, fileType);
     }
