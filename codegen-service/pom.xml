@@ -19,7 +19,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-       <!--  <dependency>
+        <dependency>
             <groupId>cn.springcloud.codegen</groupId>
             <artifactId>codegen-component-eureka</artifactId>
         </dependency>
@@ -32,14 +32,19 @@
             <artifactId>codegen-component-config</artifactId>
             <version>1.0.0</version>
         </dependency>
-          <dependency> 
+         <dependency> 
             <groupId>cn.springcloud.codegen</groupId>
             <artifactId>codegen-component-zipkin</artifactId>
             <version>1.0.0</version>
-        </dependency> -->
+        </dependency> 
+        <dependency> 
+            <groupId>cn.springcloud.codegen</groupId>
+            <artifactId>codegen-component-zipkin</artifactId>
+            <version>1.0.0</version>
+        </dependency> 
          <dependency>
             <groupId>cn.springcloud.codegen</groupId>
-            <artifactId>codegen-component-adapter</artifactId>
+            <artifactId>codegen-component-spring-boot-springmvc</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>
