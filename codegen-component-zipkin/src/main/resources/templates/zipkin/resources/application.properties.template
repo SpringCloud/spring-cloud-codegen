@@ -1,0 +1,2 @@
+apring.appliaction.name=${serviceName}
+server.port=${port}

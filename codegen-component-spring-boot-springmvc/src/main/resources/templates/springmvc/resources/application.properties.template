@@ -1,0 +1,5 @@
+appliaction.name=${serviceName}
+server.port=${port}
+
+spring.mvc.view.prefix=/WEB-INF/jsp/
+spring.mvc.view.suffix=.jsp
