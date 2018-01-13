@@ -12,11 +12,15 @@ package cn.springcloud.codegen.service;
 
 import java.io.IOException;
 
+import javax.naming.spi.StateFactory;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import cn.springcloud.codegen.component.impl.ConfigServiceImpl;
 import cn.springcloud.codegen.component.impl.EurekaServiceImpl;
+import cn.springcloud.codegen.component.impl.SpringBootSpringMvcServiceImpl;
+import cn.springcloud.codegen.component.impl.ZipkinServiceImpl;
 import cn.springcloud.codegen.component.impl.ZuulServiceImpl;
 import cn.springcloud.codegen.engine.context.SkeletonContext;
 import cn.springcloud.codegen.engine.exception.SkeletonException;
@@ -28,19 +32,37 @@ import freemarker.template.TemplateException;
 @Component
 @SkeletonPlugin
 public class SmartCodeGenServiceImpl implements SkeletonService {
-    private SkeletonService eurekaService = new EurekaServiceImpl();
-    private SkeletonService zuulService = new ZuulServiceImpl();
-    private SkeletonService configService = new ConfigServiceImpl();
+	private static SkeletonService eurekaService = null;
+	private static SkeletonService zuulService = null;
+	private static SkeletonService configService = null;
+	private static SkeletonService zipkinService = null;
+	private static SkeletonService springBootService = null;
+	static {
+		eurekaService = new EurekaServiceImpl();
+		zuulService = new ZuulServiceImpl();
+		configService = new ConfigServiceImpl();
+		zipkinService = new ZipkinServiceImpl();
+		springBootService = new SpringBootSpringMvcServiceImpl();
+	}
 
-    @Override
-    public void generate(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
-        String scAlone = skeletonProperties.getString("scAloneType");
-        if (StringUtils.equals(scAlone, "eurekaServer")) {
-            eurekaService.generate(skeletonContext, skeletonProperties);
-        } else if (StringUtils.equals(scAlone, "zuulServer")) {
-            zuulService.generate(skeletonContext, skeletonProperties);
-        } else if (StringUtils.equals(scAlone, "configServer")) {
-            configService.generate(skeletonContext, skeletonProperties);
-        }
-    }
+	@Override
+	public void generate(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties)
+			throws SkeletonException, TemplateException, IOException {
+		String scAlone = skeletonProperties.getString("scAloneType");
+		if (StringUtils.equals(scAlone, "eurekaServer")) {
+			eurekaService.generate(skeletonContext, skeletonProperties);
+		} else if (StringUtils.equals(scAlone, "zuulServer")) {
+			zuulService.generate(skeletonContext, skeletonProperties);
+		} else if (StringUtils.equals(scAlone, "configServer")) {
+			configService.generate(skeletonContext, skeletonProperties);
+		} else if (StringUtils.equalsIgnoreCase(scAlone, "zipkinServer")) {
+			zipkinService.generate(skeletonContext, skeletonProperties);
+		} else if (StringUtils.equalsIgnoreCase(scAlone, "springBootSpringMvcServer")) {
+			springBootService.generate(skeletonContext, skeletonProperties);
+		}
+		/*
+		 * StrategyFactory.instance().invoke(scAlone, skeletonContext,
+		 * skeletonProperties);
+		 */
+	}
 }

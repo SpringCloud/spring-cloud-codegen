@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <groupId>cn.springcloud.codegen</groupId>
     <artifactId>codegen</artifactId>
@@ -39,7 +38,10 @@
         <module>codegen-component-zuul</module>
         <module>codegen-component-config</module>
         <module>codegen-component-common</module>
-    </modules>
+    <module>codegen-component-zipkin</module>
+    <module>codegen-component-spring-boot-springmvc</module>
+    <!--<module>codegen-component-adapter</module>-->
+  </modules>
 
     <properties>
         <disruptor.version>3.3.7</disruptor.version>
