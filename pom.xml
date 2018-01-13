@@ -32,8 +32,6 @@
     <modules>
         <module>codegen-docs</module>
         <module>codegen-service</module>
-        <module>codegen-engine</module>
-        <module>codegen-framework</module>
         <module>codegen-component-eureka</module>
         <module>codegen-component-zuul</module>
         <module>codegen-component-config</module>
@@ -56,15 +54,16 @@
         <zip4j.version>1.3.2</zip4j.version>
         <slf4j-api.version>1.7.25</slf4j-api.version>
         <spring-boot-starter-web.version>1.5.9.RELEASE</spring-boot-starter-web.version>
-
+        <nepxion.group.id>com.nepxion</nepxion.group.id>
+        <nepxion.version>1.0.3</nepxion.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>${project.groupId}</groupId>
+                <groupId>${nepxion.group.id}</groupId>
                 <artifactId>codegen-engine</artifactId>
-                <version>${project.version}</version>
+                <version>${nepxion.version}</version>
             </dependency>
 
             <dependency>
@@ -80,9 +79,9 @@
             </dependency>
 
             <dependency>
-                <groupId>${project.groupId}</groupId>
+                <groupId>${nepxion.group.id}</groupId>
                 <artifactId>codegen-framework</artifactId>
-                <version>${project.version}</version>
+                <version>${nepxion.version}</version>
             </dependency>
 
             <dependency>
