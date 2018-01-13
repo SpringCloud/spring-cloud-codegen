@@ -14,11 +14,11 @@
 
 # 开发人员
 
-*  许进(www.xujin.org)
-*  任浩军(www.nepxion.com)
-*  钟尊发(www.zhongzunfa.com)
+*  许进([www.xujin.org](www.xujin.org))
+*  任浩军([www.nepxion.com](www.nepxion.com))
+*  钟尊发([www.zhongzunfa.com](www.zhongzunfa.com))
 *  李云龙 
-*  刘美胜奇
+*  刘美胜奇([www.liumapp.com](www.liumapp.com))
 
 # Spring Cloud代码生成器
 访问如下地址，在线生成脚手架代码，代码持续迭代更新中
