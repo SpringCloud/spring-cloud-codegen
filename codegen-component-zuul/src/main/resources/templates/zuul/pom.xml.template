@@ -8,11 +8,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>${springBootVersion}</version>
+        <version>${springBootVersion}.RELEASE</version>
     </parent>
 
     <properties>
-        <spring.cloud.version>${springCloudVersion}</spring.cloud.version>
+        <spring.cloud.version>Dalston.SR4</spring.cloud.version>
         <java.version>${javaVersion}</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

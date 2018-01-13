@@ -175,6 +175,8 @@ public class ZipUtil {
         if (StringUtils.isEmpty(destPath)) {
             if (srcFile.isDirectory()) {
                 destPath = srcFile.getParent() + File.separator + srcFile.getName() + "." + SkeletonConstant.FILE_ZIP;
+            } else if (!srcFile.exists()) {
+                throw new RuntimeException("File not exists，file path is: " + srcFile.getPath());
             } else {
                 String fileName = srcFile.getName().substring(0, srcFile.getName().lastIndexOf("."));
                 destPath = srcFile.getParent() + File.separator + fileName + "." + SkeletonConstant.FILE_ZIP;
@@ -185,6 +187,8 @@ public class ZipUtil {
                 String fileName = "";
                 if (srcFile.isDirectory()) {
                     fileName = srcFile.getName();
+                } else if (!srcFile.exists()) {
+                    throw new RuntimeException("File not exists，file path is: " + srcFile.getPath());
                 } else {
                     fileName = srcFile.getName().substring(0, srcFile.getName().lastIndexOf("."));
                 }

@@ -29,10 +29,13 @@
         </dependencies>
     </dependencyManagement>
 
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-config-server</artifactId>
-    </dependency>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+    </dependencies>
+
 
     <build>
         <finalName>${r"$"}{project.artifactId}-${r"$"}{project.version}</finalName>
