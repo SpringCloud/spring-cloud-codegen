@@ -173,10 +173,11 @@ public class ZipUtil {
      */
     private static String buildDestinationZipFilePath(File srcFile, String destPath) {
         if (StringUtils.isEmpty(destPath)) {
+            if (!srcFile.exists()) {
+                throw new RuntimeException("File or directory doesn't exist, path=" + srcFile.getPath());
+            }
             if (srcFile.isDirectory()) {
                 destPath = srcFile.getParent() + File.separator + srcFile.getName() + "." + SkeletonConstant.FILE_ZIP;
-            } else if (!srcFile.exists()) {
-                throw new RuntimeException("File not exists，file path is: " + srcFile.getPath());
             } else {
                 String fileName = srcFile.getName().substring(0, srcFile.getName().lastIndexOf("."));
                 destPath = srcFile.getParent() + File.separator + fileName + "." + SkeletonConstant.FILE_ZIP;
@@ -184,11 +185,12 @@ public class ZipUtil {
         } else {
             createDestDirectoryIfNecessary(destPath); // 在指定路径不存在的情况下将其创建出来  
             if (destPath.endsWith(File.separator)) {
+                if (!srcFile.exists()) {
+                    throw new RuntimeException("File or directory doesn't exist, path=" + srcFile.getPath());
+                }
                 String fileName = "";
                 if (srcFile.isDirectory()) {
                     fileName = srcFile.getName();
-                } else if (!srcFile.exists()) {
-                    throw new RuntimeException("File not exists，file path is: " + srcFile.getPath());
                 } else {
                     fileName = srcFile.getName().substring(0, srcFile.getName().lastIndexOf("."));
                 }
