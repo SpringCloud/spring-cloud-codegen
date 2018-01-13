@@ -1,10 +1,10 @@
 package cn.springcloud.codegen.component.generator.zuul;
 
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.generator.SkeletonFileGenerator;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.engine.util.SkeletonUtil;
-import cn.springcloud.codegen.engine.util.StringUtil;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
+import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.util.SkeletonUtil;
+import com.nepxion.skeleton.engine.util.StringUtil;
 
 import java.util.HashMap;
 import java.util.Map;

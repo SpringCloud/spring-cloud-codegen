@@ -1,9 +1,9 @@
 package cn.springcloud.codegen.component.generator.zuul.resources;
 
-import cn.springcloud.codegen.engine.constant.SkeletonConstant;
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.generator.SkeletonFileGenerator;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
+import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,7 @@ import java.util.Map;
  * @author Vincent.
  * @createdOn 2018/01/08 22:50
  */
-public class ZuulResourcesGenerator extends SkeletonFileGenerator{
+public class ZuulResourcesGenerator extends SkeletonFileGenerator {
 
     public ZuulResourcesGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
         super(skeletonContext.clone("zuul", ZuulResourcesGenerator.class), skeletonProperties);

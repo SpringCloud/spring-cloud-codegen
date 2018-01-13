@@ -2,14 +2,13 @@ package cn.springcloud.codegen.component.impl;
 
 import java.io.IOException;
 
-import cn.springcloud.codegen.component.generator.common.LogbackXmlGenerator;
 import cn.springcloud.codegen.component.generator.zipkin.ZipkinPomXmlGenerator;
 import cn.springcloud.codegen.component.generator.zipkin.java.ZipkinJavaClassGenerator;
 import cn.springcloud.codegen.component.generator.zipkin.resources.ZipkinResourcesGenerator;
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.exception.SkeletonException;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.framework.service.SkeletonService;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
+import com.nepxion.skeleton.engine.exception.SkeletonException;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 import freemarker.template.TemplateException;
 
 public class ZipkinServiceImpl implements  SkeletonService {

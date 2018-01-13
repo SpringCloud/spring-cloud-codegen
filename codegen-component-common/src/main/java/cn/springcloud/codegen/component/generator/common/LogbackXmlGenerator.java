@@ -11,17 +11,17 @@ package cn.springcloud.codegen.component.generator.common;
  */
 
 import cn.springcloud.codegen.component.generator.constant.CommonConstant;
-import cn.springcloud.codegen.engine.constant.SkeletonConstant;
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.generator.SkeletonFileGenerator;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
+import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class LogbackXmlGenerator extends SkeletonFileGenerator {
     public LogbackXmlGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties, String projectType) {
-        super(skeletonContext.clone(projectType, CommonConstant.PREFIX_TEMPLATE_PATH, CommonConstant.REDUCED_TEMPLATE_PATH, LogbackXmlGenerator.class), skeletonProperties);
+        super(new SkeletonContext(skeletonContext.getGeneratePath(), projectType, CommonConstant.PREFIX_TEMPLATE_PATH, CommonConstant.REDUCED_TEMPLATE_PATH, GitAttributesGenerator.class), skeletonProperties);
     }
 
     @Override

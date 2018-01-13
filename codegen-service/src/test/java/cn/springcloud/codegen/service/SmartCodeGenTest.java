@@ -2,12 +2,10 @@ package cn.springcloud.codegen.service;
 
 import java.io.IOException;
 
-import cn.springcloud.codegen.engine.constant.SkeletonConstant;
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.engine.util.SkeletonUtil;
-import cn.springcloud.codegen.framework.service.SkeletonService;
-import cn.springcloud.codegen.service.SmartCodeGenServiceImpl;
+import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 import freemarker.template.TemplateException;
 
 /**

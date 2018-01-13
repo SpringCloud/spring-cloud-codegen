@@ -11,13 +11,13 @@ package cn.springcloud.codegen.component.generator.common;
  */
 
 import cn.springcloud.codegen.component.generator.constant.CommonConstant;
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.generator.SkeletonFileGenerator;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
+import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class GitIgnoreGenerator extends SkeletonFileGenerator {
     public GitIgnoreGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties, String projectType) {
-        super(skeletonContext.clone(projectType, CommonConstant.PREFIX_TEMPLATE_PATH, CommonConstant.REDUCED_TEMPLATE_PATH, GitIgnoreGenerator.class), skeletonProperties);
+        super(new SkeletonContext(skeletonContext.getGeneratePath(), projectType, CommonConstant.PREFIX_TEMPLATE_PATH, CommonConstant.REDUCED_TEMPLATE_PATH, GitAttributesGenerator.class), skeletonProperties);
     }
 
     @Override

@@ -15,8 +15,12 @@
     </parent>
     <dependencies>
         <dependency>
-            <groupId>cn.springcloud.codegen</groupId>
-            <artifactId>codegen-framework</artifactId>
+            <groupId>com.nepxion</groupId>
+            <artifactId>skeleton-engine</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.nepxion</groupId>
+            <artifactId>skeleton-framework</artifactId>
         </dependency>
         <dependency>
             <groupId>cn.springcloud.codegen</groupId>

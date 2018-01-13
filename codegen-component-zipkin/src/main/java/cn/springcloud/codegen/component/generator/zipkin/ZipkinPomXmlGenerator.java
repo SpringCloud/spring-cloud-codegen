@@ -1,12 +1,13 @@
 package cn.springcloud.codegen.component.generator.zipkin;
 
+import com.nepxion.skeleton.engine.context.SkeletonContext;
+import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.util.SkeletonUtil;
+import com.nepxion.skeleton.engine.util.StringUtil;
+
 import java.util.HashMap;
 import java.util.Map;
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.generator.SkeletonFileGenerator;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.engine.util.SkeletonUtil;
-import cn.springcloud.codegen.engine.util.StringUtil;
 
 public class ZipkinPomXmlGenerator extends SkeletonFileGenerator {
 
@@ -34,7 +35,7 @@ public class ZipkinPomXmlGenerator extends SkeletonFileGenerator {
 		map.put("javaVersion", skeletonProperties.getString("javaVersion"));
 		map.put("pomGroupId", skeletonProperties.getString("pomGroupId"));
 		map.put("pomArtifactId", skeletonProperties.getString("pomArtifactId")+"-"+getSkeletonContext().getProjectType());
-		map.put("pomName", skeletonProperties.getString("pomArtifactId")+" "+StringUtil.firstLetterToLower(getSkeletonContext().getProjectType())+"Application");
+		map.put("pomName", skeletonProperties.getString("pomArtifactId")+" "+ StringUtil.firstLetterToLower(getSkeletonContext().getProjectType())+"Application");
 		map.put("mainClass", SkeletonUtil.getBasePackagePath(getSkeletonContext().getProjectType(), skeletonProperties)+"."+StringUtil.firstLetterToLower(getSkeletonContext().getProjectType())+"Application");
 		return map;
 	}
