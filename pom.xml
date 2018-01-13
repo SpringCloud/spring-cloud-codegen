@@ -55,7 +55,7 @@
         <slf4j-api.version>1.7.25</slf4j-api.version>
         <spring-boot-starter-web.version>1.5.9.RELEASE</spring-boot-starter-web.version>
         <nepxion.groupId>com.nepxion</nepxion.groupId>
-        <nepxion.version>1.0.2</nepxion.version>
+        <nepxion.version>1.0.3</nepxion.version>
     </properties>
 
     <dependencyManagement>
