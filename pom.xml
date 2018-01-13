@@ -85,12 +85,6 @@
             </dependency>
 
             <dependency>
-                <groupId>${nepxion.group.id}</groupId>
-                <artifactId>codegen-framework</artifactId>
-                <version>${nepxion.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>codegen-component-eureka</artifactId>
                 <version>${project.version}</version>
