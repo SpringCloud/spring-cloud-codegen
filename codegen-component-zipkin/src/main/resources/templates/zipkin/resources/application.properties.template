@@ -1,2 +1,2 @@
 apring.appliaction.name=${serviceName}
-server.port=${port}
+server.port=8764

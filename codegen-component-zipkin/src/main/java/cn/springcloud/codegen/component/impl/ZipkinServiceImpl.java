@@ -3,6 +3,7 @@ package cn.springcloud.codegen.component.impl;
 import java.io.IOException;
 
 import cn.springcloud.codegen.component.generator.common.LogbackXmlGenerator;
+import cn.springcloud.codegen.component.generator.zipkin.ZipkinPomXmlGenerator;
 import cn.springcloud.codegen.component.generator.zipkin.java.ZipkinJavaClassGenerator;
 import cn.springcloud.codegen.component.generator.zipkin.resources.ZipkinResourcesGenerator;
 import cn.springcloud.codegen.engine.context.SkeletonContext;
@@ -20,9 +21,9 @@ public class ZipkinServiceImpl implements  SkeletonService {
 		new ZipkinJavaClassGenerator(skeletonContext, skeletonProperties).generate();
 		//创建src/main/resource
 		new ZipkinResourcesGenerator(skeletonContext, skeletonProperties).generate();
-		//创建log
-		new LogbackXmlGenerator(skeletonContext, skeletonProperties, "zipkin").generate();
 		//创建ZipkinPom
+		new ZipkinPomXmlGenerator(skeletonContext, skeletonProperties).generate();
+
 		SkeletonService service = new CommonServiceImpl("zipkin");
 		service.generate(skeletonContext, skeletonProperties);
 	}

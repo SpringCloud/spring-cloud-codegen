@@ -1,5 +1,5 @@
 spring.application.name=${serviceName}
-server.port=2222
+server.port=8760
 
 # 匹配请求路径中含有XXXX的请求
 # zuul.routes.XXXX.path=/XXXX/**

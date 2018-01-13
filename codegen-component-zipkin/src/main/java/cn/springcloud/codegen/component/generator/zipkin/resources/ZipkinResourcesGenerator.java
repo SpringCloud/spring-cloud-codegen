@@ -34,7 +34,7 @@ public class ZipkinResourcesGenerator extends SkeletonFileGenerator {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("serviceName",
 				skeletonProperties.getString("projectName") + "-" + getSkeletonContext().getProjectType());
-		map.put("port", skeletonProperties.getString("port"));
+//		map.put("port", skeletonProperties.getString("port"));
 		return map;
 	}
 

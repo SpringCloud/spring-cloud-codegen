@@ -33,8 +33,8 @@ public class SpringBootSpringMvcResourceGenerator extends SkeletonFileGenerator 
 	@Override
 	protected Object getDataModel() {
 	    Map<String,Object>  dataMap=new  HashMap<String,Object>();
-	    dataMap.put("serviceName", skeletonProperties.getString("serviceName")+"-"+getSkeletonContext().getProjectType());
-	    dataMap.put("port", skeletonProperties.getString("port"));
+	    dataMap.put("serviceName", skeletonProperties.getString("projectName")+"-"+getSkeletonContext().getProjectType());
+//	    dataMap.put("port", skeletonProperties.getString("port"));
 	  
 		return dataMap;
 	}

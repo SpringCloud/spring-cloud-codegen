@@ -48,14 +48,14 @@ public class SmartCodeGenServiceImpl implements SkeletonService {
 	@Override
 	public void generate(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties)
 			throws SkeletonException, TemplateException, IOException {
-		String scAlone = skeletonProperties.getString("scAloneType");
-		if (StringUtils.equals(scAlone, "eurekaServer")) {
+		String scAlone = skeletonProperties.getString("sc-alone-radio");
+		if (StringUtils.equals(scAlone, "eureka-server")) {
 			eurekaService.generate(skeletonContext, skeletonProperties);
-		} else if (StringUtils.equals(scAlone, "zuulServer")) {
+		} else if (StringUtils.equals(scAlone, "zuul-server")) {
 			zuulService.generate(skeletonContext, skeletonProperties);
-		} else if (StringUtils.equals(scAlone, "configServer")) {
+		} else if (StringUtils.equals(scAlone, "config-server")) {
 			configService.generate(skeletonContext, skeletonProperties);
-		} else if (StringUtils.equalsIgnoreCase(scAlone, "zipkinServer")) {
+		} else if (StringUtils.equalsIgnoreCase(scAlone, "zipkin-server")) {
 			zipkinService.generate(skeletonContext, skeletonProperties);
 		} else if (StringUtils.equalsIgnoreCase(scAlone, "springBootSpringMvcServer")) {
 			springBootService.generate(skeletonContext, skeletonProperties);

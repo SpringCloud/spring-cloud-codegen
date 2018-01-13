@@ -29,13 +29,14 @@ public class ZipkinPomXmlGenerator extends SkeletonFileGenerator {
 	@Override
 	protected Object getDataModel() {
 		Map<String,Object> map=new HashMap<String,Object>();
-		map.put("springCloudVersion", skeletonProperties.getString("springCloudVersion"));
+//		map.put("springCloudVersion", skeletonProperties.getString("springCloudVersion"));
+		map.put("springBootVersion", skeletonProperties.getString("springBootVersion"));
 		map.put("javaVersion", skeletonProperties.getString("javaVersion"));
 		map.put("pomGroupId", skeletonProperties.getString("pomGroupId"));
 		map.put("pomArtifactId", skeletonProperties.getString("pomArtifactId")+"-"+getSkeletonContext().getProjectType());
 		map.put("pomName", skeletonProperties.getString("pomArtifactId")+" "+StringUtil.firstLetterToLower(getSkeletonContext().getProjectType())+"Application");
 		map.put("mainClass", SkeletonUtil.getBasePackagePath(getSkeletonContext().getProjectType(), skeletonProperties)+"."+StringUtil.firstLetterToLower(getSkeletonContext().getProjectType())+"Application");
-		return null;
+		return map;
 	}
 
 }
