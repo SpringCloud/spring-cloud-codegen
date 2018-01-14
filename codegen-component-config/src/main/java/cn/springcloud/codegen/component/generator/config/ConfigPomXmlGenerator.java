@@ -1,10 +1,11 @@
 package cn.springcloud.codegen.component.generator.config;
 
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.generator.SkeletonFileGenerator;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.engine.util.SkeletonUtil;
-import cn.springcloud.codegen.engine.util.StringUtil;
+
+import com.nepxion.skeleton.engine.context.SkeletonContext;
+import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.util.SkeletonUtil;
+import com.nepxion.skeleton.engine.util.StringUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +18,7 @@ import java.util.Map;
  * @time: 8:30
  * @description : pom 文件的生成
  */
-public class ConfigPomXmlGenerator extends SkeletonFileGenerator{
+public class ConfigPomXmlGenerator extends SkeletonFileGenerator {
 
     public ConfigPomXmlGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
         super(skeletonContext.clone("config", ConfigPomXmlGenerator.class), skeletonProperties);

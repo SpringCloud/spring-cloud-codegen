@@ -10,12 +10,13 @@ package cn.springcloud.codegen;
  * @version 1.0
  */
 
+import com.nepxion.skeleton.framework.config.SkeletonFrameworkConfig;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-@Import({ cn.springcloud.codegen.framework.config.SkeletonFrameworkConfig.class })
+@Import({ com.nepxion.skeleton.framework.config.SkeletonFrameworkConfig.class })
 public class SmartCodeGenApplication {
     public static void main(String[] args) {
         new SpringApplicationBuilder(SmartCodeGenApplication.class).web(true).run(args);

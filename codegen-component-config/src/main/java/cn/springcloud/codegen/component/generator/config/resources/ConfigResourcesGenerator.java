@@ -1,9 +1,11 @@
 package cn.springcloud.codegen.component.generator.config.resources;
 
-import cn.springcloud.codegen.engine.constant.SkeletonConstant;
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.generator.SkeletonFileGenerator;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
+
+
+import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
+import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +18,7 @@ import java.util.Map;
  * @time: 23:59
  * @description : this is configuretion resources generator
  */
-public class ConfigResourcesGenerator extends SkeletonFileGenerator  {
+public class ConfigResourcesGenerator extends SkeletonFileGenerator {
 
     public ConfigResourcesGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
         super(skeletonContext.clone("config", ConfigResourcesGenerator.class), skeletonProperties);

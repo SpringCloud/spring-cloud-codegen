@@ -3,10 +3,11 @@ package cn.springcloud.codegen.component.impl;
 import cn.springcloud.codegen.component.generator.config.ConfigPomXmlGenerator;
 import cn.springcloud.codegen.component.generator.config.java.ConfigJavaClassGenerator;
 import cn.springcloud.codegen.component.generator.config.resources.ConfigResourcesGenerator;
-import cn.springcloud.codegen.engine.context.SkeletonContext;
-import cn.springcloud.codegen.engine.exception.SkeletonException;
-import cn.springcloud.codegen.engine.property.SkeletonProperties;
-import cn.springcloud.codegen.framework.service.SkeletonService;
+
+import com.nepxion.skeleton.engine.context.SkeletonContext;
+import com.nepxion.skeleton.engine.exception.SkeletonException;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 import freemarker.template.TemplateException;
 
 import java.io.IOException;
