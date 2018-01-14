@@ -16,10 +16,6 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.nepxion</groupId>
-			<artifactId>skeleton-engine</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.nepxion</groupId>
 			<artifactId>skeleton-framework</artifactId>
 		</dependency>
 		<dependency>
