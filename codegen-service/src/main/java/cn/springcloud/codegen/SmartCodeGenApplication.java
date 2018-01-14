@@ -10,7 +10,6 @@ package cn.springcloud.codegen;
  * @version 1.0
  */
 
-import com.nepxion.skeleton.framework.config.SkeletonFrameworkConfig;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
