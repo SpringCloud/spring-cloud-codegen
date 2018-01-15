@@ -19,12 +19,21 @@
 *  钟尊发([www.zhongzunfa.com](www.zhongzunfa.com))
 *  李云龙 
 *  刘美胜奇([www.liumapp.com](www.liumapp.com))
+*  任聪
 
 # Spring Cloud代码生成器
+*  使用说明
+
 访问如下地址，在线生成脚手架代码，代码持续迭代更新中
 
 在线演示地址http://start.springcloud.cn
   
 ![切换效果](/codegen-docs/tmp.gif)
+
+*  子模块结构示意图
+
+![子模块结构图](/codegen-docs/module-structure.png)
+
+
 
 
