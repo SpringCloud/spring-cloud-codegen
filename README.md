@@ -17,7 +17,7 @@
 *  许进(www.xujin.org)
 *  任浩军(www.nepxion.com)
 *  钟尊发(www.zhongzunfa.com)
-*  李云龙 
+*  李云龙(www.smartscity.com)
 *  刘美胜奇
 
 # Spring Cloud代码生成器
